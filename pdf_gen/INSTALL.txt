@@ -1,0 +1,65 @@
+DEPENDENCIES:
+-------------
+
+Java
+----
+
+java 1.5 -- tested with 1.5.0_16 & 1.5.0_18
+
+saxon (8 or 9)
+--------------
+http://saxon.sourceforge.net/#F9.1SA selet the saxon-B 9.1 download
+http://prdownloads.sourceforge.net/saxon/saxonb9-1-0-7j.zip
+Unpack zip file and add the saxon9-1-0-7j/saxon9.jar to your classpath
+
+Python Dependencies:
+--------------------
+
+python 2.5
+
+reportlab 2.3
+-------------
+http://www.reportlab.org/index.html --
+http://www.reportlab.org/downloads.html#reportlab -- This needs compilation.
+
+pisa-3.0.32
+-----------
+
+http://www.xhtml2pdf.com/ download: http://pypi.python.org/pypi/pisa/
+
+html5lib 0.11.1
+---------------
+http://code.google.com/p/html5lib/
+http://code.google.com/p/html5lib/downloads/list
+
+BeautifulSoup 3.1.0.1
+---------------------
+
+http://www.crummy.com/software/BeautifulSoup/ 
+http://www.crummy.com/software/BeautifulSoup/download/BeautifulSoup.tar.gz
+
+PIL
+---
+If you want to embed images you need the PIL, Python Imaging Library. This has
+components that must be compiled on your platform and can be a bit of a pain.
+http://www.pythonware.com/products/pil/
+
+This code has been tested on solaris 10 and Mac OS X 10.5.
+
+
+INSTALL
+-------
+
+Install all the dependencies, edit your CLASSPATH and PYTHONPATH if necessary.
+
+A quick test can be done by moving the pdf_gen directory and running
+
+python pdf_gen.py --file ./sample_files/p29.xml
+
+This should produce a pdf in the sample_files directory.
+
+Run the pdf_gen.py with no parameters to see the list of options.
+
+The --xslt option can be used to use your own XSLT stylesheet for the xml to
+html conversion.
+The --css option can be used to supply your own CSS styling for the html/pdf.
