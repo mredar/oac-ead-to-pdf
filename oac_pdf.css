@@ -1,5 +1,33 @@
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans.ttf");
+}
+
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans-Oblique.ttf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans-BoldOblique.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+* {
+    font-family: DejaSans;
+}
+
 html {
-    font-family: Helvetica; 
+    font-family: DejaSans;
     font-size: 10px; 
     font-weight: normal;
     color: #000000; 
@@ -12,6 +40,10 @@ html {
     width: auto;
     height: auto;
     white-space: normal;    
+}
+
+img { font-family: helvetica;
+      zoom: 80%;
 }
 
 b, 
@@ -254,7 +286,7 @@ div.c0x-notes {
     */
 
 .c0x-notes {
-    padding-left: 3px;
+    padding-left: 3pc;
 }
 .c0x-notes b { color: #555555; }
 
@@ -379,21 +411,19 @@ div.cx { margin-top: 10px; margin-bottom: 10px; font-size: 90%; overflow: hidden
 .c01 b { color: #b85025;}
 */
 
-/* the stuff below doesn't seem to work */
-/* tried to do padding left as well */
-.collection-contents .c01 { margin-left: 0em; width: 470em; float: left; }
-.collection-contents .c02 { margin-left: 10em; width: 470em; float: left; }
-.collection-contents .c03 { margin-left: 20em; width: 450em; float: left; }
-.collection-contents .c04 { margin-left: 40em; width: 430em; float: left; }
-.collection-contents .c05 { margin-left: 60em; width: 410em; float: left; }
-.collection-contents .c06 { margin-left: 80em; width: 390em; float: left; }
-.collection-contents .c07 { margin-left: 100em; width: 370em; float: left; }
-.collection-contents .c08 { margin-left: 120em; width: 350em; float: left; }
-.collection-contents .c09 { margin-left: 140em; width: 330em; float: left; }
-.collection-contents .c10 { margin-left: 160em; width: 310em; float: left; }
-.collection-contents .c11 { margin-left: 180em; width: 290em; float: left; }
-.collection-contents .c12 { margin-left: 200em; width: 270em; float: left; }
-/* to here it doesn't work */
+.collection-contents .c01 { margin-left: 0pc; float: left; }
+.collection-contents .c02 { margin-left: 1pc; float: left; }
+.collection-contents .c03 { margin-left: 2pc; float: left; }
+.collection-contents .c04 { margin-left: 3pc; float: left; }
+.collection-contents .c05 { margin-left: 4pc; float: left; }
+.collection-contents .c06 { margin-left: 5pc; float: left; }
+.collection-contents .c07 { margin-left: 6pc; float: left; }
+.collection-contents .c08 { margin-left: 7pc; float: left; }
+.collection-contents .c09 { margin-left: 8pc; float: left; }
+.collection-contents .c10 { margin-left: 9pc; float: left; }
+.collection-contents .c11 { margin-left: 10pc; float: left; }
+.collection-contents .c12 { margin-left: 11pc; float: left; }
+
 .toc-titles .c01 { margin-left: 15px; }
 .toc-titles .c02 { margin-left: 30px; }
 .toc-titles .navAction { font-size: 95%; }
@@ -404,7 +434,7 @@ ol.ead-upperroman li { list-style-type:upper-roman; }
 ol.ead-lowerroman li { list-style-type:lower-roman; }
 .ead-list li { list-style-type:disc; }
 .ead-list-unmarked li { list-style-type:none; }
-ol, ul, dl { padding-left: 2em; }
+ol, ul, dl { padding-left: 2pc; }
 /* li { list-style-type: disc;} */
 .ead-bold { font-weight:bold; }
 .ead-bolditalic { font-style:italic; font-weight:bold; }

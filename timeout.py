@@ -1,7 +1,3 @@
-# copied from:
-# http://www.pycs.net/users/0000231/weblog/2004/10/12.html
-# and http://nick.vargish.org/clues/python-tricks.html
-
 import signal
 
 class TimeoutFunctionException(Exception):

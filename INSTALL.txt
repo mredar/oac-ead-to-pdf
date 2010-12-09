@@ -4,7 +4,7 @@ DEPENDENCIES:
 Java
 ----
 
-java 1.5 -- tested with 1.5.0_16 & 1.5.0_18
+java 1.5+ -- tested with 1.5.0_16 & 1.5.0_18
 
 saxon (8 or 9)
 --------------
@@ -12,31 +12,59 @@ http://saxon.sourceforge.net/#F9.1SA selet the saxon-B 9.1 download
 http://prdownloads.sourceforge.net/saxon/saxonb9-1-0-7j.zip
 Unpack zip file and add the saxon9-1-0-7j/saxon9.jar to your classpath
 
+XTF
+---
+
+Some special XTF enhancements are used in a number of xslt stylesheets. To access these functions you need an install of XTF around?
+
+
 Python Dependencies:
 --------------------
 
-python 2.5
+python 2.5+
 
-reportlab 2.3
+reportlab 2.5
 -------------
 http://www.reportlab.org/index.html --
 http://www.reportlab.org/downloads.html#reportlab -- This needs compilation.
 
-pisa-3.0.32
+easy_install -U reportlab
+pip install -U reportlab
+
+pisa-3.0.33
 -----------
 
 http://www.xhtml2pdf.com/ download: http://pypi.python.org/pypi/pisa/
 
-html5lib 0.11.1
----------------
+easy_install -U pisa
+pip install -U pisa
+
+html5lib 0.90
+-------------
 http://code.google.com/p/html5lib/
 http://code.google.com/p/html5lib/downloads/list
 
-BeautifulSoup 3.1.0.1
----------------------
+pip install -U html5lib
+
+BeautifulSoup 3.2
+-----------------
 
 http://www.crummy.com/software/BeautifulSoup/ 
 http://www.crummy.com/software/BeautifulSoup/download/BeautifulSoup.tar.gz
+
+pip install -U beautifulsoup
+
+Parallel Python 1.6
+-------------------
+http://www.parallelpython.com
+http://pypi.python.org/pypi/Parallel%20Python%20SMP/1.1%20beta
+
+pip install -U http://www.parallelpython.com/downloads/pp/pp-1.6.0.tar.gz
+
+PLAC 0.7
+--------
+
+pip install -U plac
 
 PIL
 ---

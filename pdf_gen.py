@@ -1,7 +1,4 @@
 #! /usr/bin/env python
-# Author: Mark Redar <mark.redar@ucop.edu>
-# Copyright: See LICENSE.txt
-#<!-- BSD license copyright 2009 -->
 description = """
 Program to generate pdfs from ead xml files. Can work in dir walk, file or list file mode.
 
@@ -12,14 +9,20 @@ Default output directory is the same directory as xml file.
 Use -help option to see complete list of options.
 """
 
+import cgitb
+cgitb.enable(format='text')
+
 import os, sys
 import logging, logging.handlers
 import datetime
 import timeout
+import cStringIO
+#use plac instead?
 from optparse import OptionParser, OptionError
 import re
-import ho.pisa as pisa
 import xml.etree.ElementTree as ET
+import ho.pisa as pisa
+
 def elementlist_tostring(element_list):
     retStr = ''
     for elem in element_list:
@@ -38,7 +41,8 @@ h = NullHandler()
 logging.getLogger('OAC').addHandler(h)
 
 PATH_TO_PROGS = os.environ.get("PATH_TO_PROGS",
-                            '.')
+                            os.path.abspath(os.path.split(__file__)[0])
+                              )
 XSLTFILE = os.path.join(PATH_TO_PROGS, "oac4_to_pdf.xslt")
 CSSFILE = os.path.join(PATH_TO_PROGS, "oac_pdf.css")
 NUMFILES_PROCESSED = 0
@@ -49,6 +53,27 @@ TIMEOUT_LOG_LEVEL = 90
 LOG_BACKUP_COUNT = 10
 LOG_LEVEL = logging.INFO
 PARALLEL_PATH = 'pdf'
+TMP_FILE_DIR = None
+
+def build_parallel_dir(source_root, parallel_path=PARALLEL_PATH):
+    '''Build the parallel dir root name
+
+    >>> build_parallel_dir('/dsc/data/in/oac-ead/prime2002')
+    /dsc/data/in/oac-ead/pdf
+    '''
+    return os.path.join(os.path.split(os.path.abspath(source_root))[0], parallel_path)
+
+def build_parallel_path(source_path, source_root, parallel_path=PARALLEL_PATH):
+    '''Create a parallel path given the file source path and the branching root
+    for the source path. The branching root is the dir path at which the
+    parallel structure should be rooted.
+
+    '''
+    # do work on absolute paths...
+    source_path = os.path.abspath(source_path)
+    source_root = os.path.abspath(source_root)
+    parallel_root = build_parallel_dir(source_root)
+    return source_path.replace(source_root, parallel_root)
 
 class Bunch(object):
     def __init__(self, **kwds):
@@ -67,7 +92,7 @@ class PDFGenerator(object):
     each different configuration of input file transform code & post-process
     code. Can then call obj.generate(inputfile, outputdir) to create a pdf file
     '''
-    def __init__(self, cssfile=None, inputTransform=None,  postProcessor=None
+    def __init__(self, cssfile=None, inputTransform=None,  postProcessor=None, debug=False
                  ):
         # if transforms are None, set to pass through function
         if inputTransform is None:
@@ -87,6 +112,7 @@ class PDFGenerator(object):
             self.postProcessor = lambda x,y: True
         else:
             self.postProcessor = postProcessor
+        self.debug = debug
 
     def __html_to_pdf(self, htmlstring, pdffile, cssstring=None,
                     encoding='utf-8', debug=False):
@@ -107,7 +133,9 @@ class PDFGenerator(object):
         # must convert any <br></br> to just <br/>
         # then feed result to pisaDocument
         pisaHTMLString = htmlstring.replace('<br></br>', '<br/>')
-        pdfcontext = pisa.pisaDocument(pisaHTMLString,
+        #logging.error( 'pisaHTMLString is %s' % type(pisaHTMLString))
+        # wrap string in file like StringIO
+        pdfcontext = pisa.pisaDocument(cStringIO.StringIO(pisaHTMLString),
                              dest=pdffile,
                              debug=debug,
                              default_css=cssstring,
@@ -115,8 +143,7 @@ class PDFGenerator(object):
                             )
         return pdfcontext
     
-
-    def __nullTransform(self, filepath):
+    def __nullTransform(self, filepath, debug=False):
         if os.path.isfile(filepath):
             f = file(filepath, 'r')
             try:
@@ -127,7 +154,7 @@ class PDFGenerator(object):
         else:
             raise OSError, "No such file:%s" % filepath
 
-    def generate(self, filepath_in, filepath_out):
+    def generate(self, filepath_in, filepath_out, savehtml=False, htmlpath=None, htmlonly=False):
         '''Trys to generate a pdf from the input file.
         Runs the input transform to create html string
         Then runs pisa on the html string.
@@ -135,13 +162,21 @@ class PDFGenerator(object):
         post-processor on the outputfile
         Returns the intermediate html and postProcessor result?
         '''
-        htmlstring = self.inputTransform(filepath_in)
-        foo = open(filepath_out, 'wb')
-        try:
-            self.__html_to_pdf(htmlstring, foo, self.css )
-        finally:
-            foo.close()
-        result_pp = self.postProcessor(filepath_out, filepath_in)
+        htmlstring = self.inputTransform(filepath_in, debug=self.debug)
+        if savehtml or htmlonly:
+            f = open(htmlpath, 'w')
+            try:
+                f.write(htmlstring)
+            finally:
+                f.close()
+        result_pp = None
+        if not htmlonly:
+            foo = open(filepath_out, 'wb')
+            try:
+                self.__html_to_pdf(htmlstring, foo, self.css )
+            finally:
+                foo.close()
+            result_pp = self.postProcessor(filepath_out, filepath_in)
         return htmlstring, result_pp
 
 class OAC_EADtoPDFGenerator(object):
@@ -156,9 +191,7 @@ class OAC_EADtoPDFGenerator(object):
         self.numtimeouts = 0
         self.numerrs = 0
         self.xsltpath = path_to_xslt
-        logging.error('Setting postProcessor')
         self.postProcessor = PostProcessor_OACEAD()
-        logging.error('set PP')
 
     '''
     def __init__(self, timeout=600):
@@ -168,8 +201,8 @@ class OAC_EADtoPDFGenerator(object):
     def canGeneratePDF(self, fname):
         return OAC_EADtoPDFGenerator.isNot_DC_or_METS_XML(fname)
 
-    @classmethod
-    def isNot_DC_or_METS_XML(cls, fname):
+    @staticmethod
+    def isNot_DC_or_METS_XML(fname):
         '''Checks file name to ensure file is just a <foo>.xml
         '''
         (name, ext) = os.path.splitext(fname)
@@ -215,11 +248,26 @@ class OAC_EADtoPDFGenerator(object):
             return out_dir
     
         if outdir_option.lower().find('outdir=') != -1:
+            logging.info( "outpath is finding: outdir")
+            logging.info( "outdir strip = %s" % (outdir_option[7:], ))
             return os.path.abspath(outdir_option[7:])
     
         return dirname
 
-    def inputTransform(self, filepath):
+    def nohtmlTransform(self, filepath, debug=False):
+        foo = filepath+'.html'
+        logging.info("Using existing html file %s to create PDF." % foo)
+        if os.path.isfile(foo):
+            f = file(foo, 'r')
+            try:
+                content = f.read()
+            finally:
+                f.close()
+            return content
+        else:
+            raise OSError, "No such file:%s" % filepath
+
+    def inputTransform(self, filepath, debug=False):
         '''Transform input file to html for consumption by pisa
         '''
         import tempfile
@@ -227,21 +275,24 @@ class OAC_EADtoPDFGenerator(object):
         try:
             #close the open filehandle
             os.close(fd)
-            syscall = ' '.join(["java net.sf.saxon.Transform -s",
-                               filepath, "-o",
-                                tempfilepath,
+            syscall = ''.join(["java net.sf.saxon.Transform -s ",
+                               filepath, " -o ",
+                                tempfilepath, ' ',
                                 self.xsltpath,
-                               "doc.view=entire_text pdfgen=normal",
-                               #"debug" if debug else "normal",
-			       " #2> /dev/null"
+                               " doc.view=entire_text pdfgen=",
+                               "debug" if debug else "normal"
+                                #" #2> /dev/null"
                               ])
         
+            logging.getLogger('OAC').info("Saxon call: %s" % (syscall))
             import subprocess
             p = subprocess.Popen(syscall, shell=True, stdout=subprocess.PIPE,
-                                 stderr=subprocess.PIPE)
+                                stderr=subprocess.PIPE)
+            #p = subprocess.Popen(syscall, shell=True, stdout=None,
+            #                     stderr=None)
             sts = os.waitpid(p.pid, 0)
             err = sts[1]
-            #print "STS: ", sts
+            logging.getLogger('OAC').info("Saxon call exit:%s" % (err))
             if err != 0:
                 logging.getLogger('OAC').error("Error Msg: %s  ERRORCODE:%s :: cmd: %s" % (p.stderr.read(), err, syscall))
                 #cleanup tempfile
@@ -261,7 +312,7 @@ class OAC_EADtoPDFGenerator(object):
                 raise
         return html
 
-    def xml_to_pdf(self, filepath_in, outputdir, cssfile=CSSFILE, nohtml=False, savehtml=False, debug=False):
+    def xml_to_pdf(self, filepath_in, outputdir, cssfile=CSSFILE, nohtml=False, savehtml=False, htmlonly=False, debug=False):
         '''Run saxon on xml with oac4_to_pdf.xslt to produce html suitable for 
         the pisa html to pdf library.
         '''
@@ -274,12 +325,12 @@ class OAC_EADtoPDFGenerator(object):
         # create an instance of the PDFGenerator
         # feeding it inputTransform & PostProcessor class
         if nohtml:
-            transform = None
+            transform = self.nohtmlTransform
         else:
             transform = self.inputTransform
 
-        pdfGen = PDFGenerator(inputTransform = transform, postProcessor = self.postProcessor, cssfile=cssfile )
-        html, result_post  = pdfGen.generate(filepath_in, filepath_out+'.pdf')
+        pdfGen = PDFGenerator(inputTransform = transform, postProcessor = self.postProcessor, cssfile=cssfile, debug=debug )
+        html, result_post  = pdfGen.generate(filepath_in, filepath_out+'.pdf', savehtml=savehtml, htmlpath=os.path.join(outputdir, fname+ext+'.html'), htmlonly=htmlonly)
         return html, result_post
     
     def input_is_newer(self, input_file, output_file):
@@ -292,7 +343,8 @@ class OAC_EADtoPDFGenerator(object):
         return newer
 
     def pdf_gen_file(self, fname, cssfile=CSSFILE, timeoutSecs=None, outdir_option=None, data_root=None,
-                     force=False, nohtml = False, savehtml = False, debug=False):
+                     force=False, nohtml = False, savehtml = False, debug=False,
+                    htmlonly=False):
         self.starttime = datetime.datetime.now()
         logging.getLogger('OAC').info('Running in file mode for file:%s' % fname)
         if outdir_option is not None:
@@ -300,12 +352,14 @@ class OAC_EADtoPDFGenerator(object):
                         logging.error("To use parallel output dir in file mode, you must specify the data_root (--data_root=)")
                         raise OptionError
         return self.pdf_gen_list([fname], cssfile=cssfile, outdir_option=outdir_option,
-                          data_root=data_root, savehtml=savehtml,
-                          timeoutSecs=timeoutSecs, force=force, debug=debug)
+                          data_root=data_root, nohtml=nohtml, savehtml=savehtml,
+                          timeoutSecs=timeoutSecs, force=force, debug=debug,
+                                htmlonly=htmlonly)
     
     def pdf_gen_list(self, flist, cssfile=CSSFILE, timeoutSecs=None,
                      outdir_option=None, data_root=None,
-                     force=False, nohtml = False, savehtml = False, debug=False):
+                     force=False, nohtml = False, savehtml = False, debug=False,
+                    htmlonly=False):
         if outdir_option is not None:
             if (outdir_option.lower().find('parallel') != -1) and not data_root:
                 logging.error("To use parallel output dir in list mode, you must specify the data_root (--data_root=)")
@@ -352,6 +406,7 @@ class OAC_EADtoPDFGenerator(object):
                                      cssfile = cssfile,
                                      nohtml=nohtml,
                                      savehtml=savehtml,
+                                     htmlonly=htmlonly,
                                      debug = debug
                                     )
                         self.numfilecomplete +=1
@@ -395,15 +450,19 @@ class OAC_EADtoPDFGenerator(object):
                 self.timer = self.timer + tDiff
                 if self.timer.seconds > 0:
                     self.timer = datetime.timedelta(0)
-                    logger.info("CURRENT RUNNING TIME FOR LIST:%s" % (tFinish - self.starttime))
-                logger.info("ATTEMPTS: %d; SUCCESS:%d; ERR:%d; TIMEOUTS:%d" %
+                    if len(flist) > 1:
+                        logger.info("CURRENT RUNNING TIME FOR LIST:%s" % (tFinish - self.starttime))
+                if len(flist) > 1:
+                    logger.info("ATTEMPTS: %d; SUCCESS:%d; ERR:%d; TIMEOUTS:%d" %
                                  (self.numfileattempt, self.numfilecomplete,
                                   self.numerrs, self.numtimeouts)
                             )
         return completed, timeouts, errs, skipped
 
     def pdf_gen_dirtree(self, dir, outdir, excludes=[], timeoutSecs=600,
-                        force=False, exclude_dirs=[], savehtml=False, nohtml=False, debug=False, cssfile=CSSFILE):
+                        force=False, exclude_dirs=[], savehtml=False,
+                        nohtml=False, debug=False, cssfile=CSSFILE,
+                        htmlonly=False):
         ''' Call list process on each dir
         '''
         self.starttime = datetime.datetime.now()
@@ -426,7 +485,8 @@ class OAC_EADtoPDFGenerator(object):
         (completed, timeouts, errors, skipped) = self.pdf_gen_list(xml_files,
                               timeoutSecs=timeoutSecs, outdir_option=outdir,
                               data_root=dir, force=force, savehtml=savehtml,
-                              nohtml=nohtml, debug=debug, cssfile=cssfile)
+                              nohtml=nohtml, debug=debug, cssfile=cssfile,
+                              htmlonly=htmlonly)
         return completed, timeouts, errors, skipped
 
 
@@ -473,12 +533,12 @@ class PostProcessor_OACEAD(object):
     def parse_source_xml_metadata(self, XMLfile):
         '''Parse the xml for any interesting doc info
         '''
+        logger = logging.getLogger('OAC')
         retVal = None
         try:
             f = open(XMLfile, 'r')
             try:
                 root_element = ET.parse(f)        
-                logger = logging.getLogger('OAC')
                 logger.debug(root_element)
                 # try Dublin Core Elements
                 contributor = elementlist_tostring(root_element.findall('./contributor'))
@@ -591,13 +651,13 @@ class PostProcessor_OACEAD(object):
         # add the pisa Producer lis
         pisaTagline = ' - with pisa XHTML to PDF'# <http://www.xhtml2pdf.com>'
         docInfo['producer'] = docInfo['producer'] + pisaTagline
-        msg = 'docInfo title:%s author:%s producer:%s subject: %s' % (docInfo.get('title'),
-                                               docInfo.get('author'),
-                                               docInfo.get('producer'),
-                                               docInfo.get('subject')
-                                              )
-   
-        logging.getLogger('OAC').info("PDFfile=%s %s" % (PDFfile, msg))
+#        msg = 'docInfo title:%s author:%s producer:%s subject: %s' % (docInfo.get('title'),
+#                                               docInfo.get('author'),
+#                                               docInfo.get('producer'),
+#                                               docInfo.get('subject')
+#                                              )
+#   
+#        logging.getLogger('OAC').info("PDFfile=%s %s" % (PDFfile, msg))
         self.modify_pdf(PDFfile, docInfo)
 
 ################################################################################
@@ -628,7 +688,8 @@ def read_exclude_file(fname):
 
 
 def setup_logger():
-    log = logging.getLogger('OAC')
+    #log = logging.getLogger('OAC')
+    log = logging.getLogger()
     log.setLevel(LOG_LEVEL)
     h = logging.handlers.RotatingFileHandler(info.logprefix+'.log', backupCount=LOG_BACKUP_COUNT )
     h.setLevel(LOG_LEVEL)
@@ -669,7 +730,8 @@ def process_args(args_cmd, info):
     arg_parser.add_option("-o", "--outdir", dest="outdir",
                           help=""" parallel=/abs/dir - produce output in parallele directory structure, with root of /abs/dir
 subdir=name - produce output in subdir "name"
-outdir=/abs/dir - put all pdf files in /abs/dir
+outdir=/abs/dir - put all pdf files in /abs/dir.
+If not set, pdf will be created in same directory as source file.
                           """
                          )
     arg_parser.add_option("--data_root", dest="data_root",
@@ -693,6 +755,8 @@ outdir=/abs/dir - put all pdf files in /abs/dir
                       default=False, help="Run in debug mode")
     arg_parser.add_option("--savehtml", action="store_true", dest="savehtml",
                       default=False, help="Save intermediate html files")
+    arg_parser.add_option("--htmlonly", action="store_true", dest="htmlonly",
+                      default=False, help="Generate intermediate html files, save them and exit before creating pdf")
     arg_parser.add_option("--nohtml", action="store_true", dest="nohtml",
                       default=False,
                       help="Do not generate html files, use existing files.")
@@ -733,6 +797,7 @@ outdir=/abs/dir - put all pdf files in /abs/dir
     info.exclude_dirs = options.exclude_dirs
     info.debug = options.debug
     info.savehtml = options.savehtml
+    info.htmlonly = options.htmlonly
     info.nohtml = options.nohtml
 
     info.timeout = options.timeout
@@ -759,6 +824,7 @@ def main(args):
     logger.info("Timeout in secs = %s" % (info.timeout))
     logger.info("Force = %s" % (info.force))
     logger.info("Save html  = %s" % info.savehtml)
+    logger.info("No html  = %s" % info.nohtml)
     logger.info("CSS File = %s" % info.css)
     logger.info("XSLT File = %s\n\n\n" % info.xslt)
     excludes = []
@@ -775,17 +841,24 @@ def main(args):
         exclude_dirs = []
         if info.exclude_dirs:
             exclude_dirs = read_exclude_dirs_file(info.exclude_dirs)
-        (completed, timeouts, errors, skipped) = pdfGenerator.pdf_gen_dirtree(info.dir, info.outdir, excludes=excludes, cssfile=info.css,
-        timeoutSecs=info.timeout, force=info.force, debug=info.debug,
-        exclude_dirs=exclude_dirs, savehtml=info.savehtml, nohtml=info.nohtml)
+        (completed, timeouts, errors, skipped) = pdfGenerator.pdf_gen_dirtree(info.dir, info.outdir,
+            excludes=excludes, cssfile=info.css,
+            timeoutSecs=info.timeout, force=info.force, debug=info.debug,
+            exclude_dirs=exclude_dirs, savehtml=info.savehtml, nohtml=info.nohtml,
+            htmlonly=info.htmlonly)
     elif info.mode == 'list':
         file_list = read_list_file(info.list)
-        (completed, timeouts, errors, skipped)  = pdfGenerator.pdf_gen_list(file_list, cssfile=info.css,
-            timeoutSecs=info.timeout, outdir_option=info.outdir, data_root=info.data_root,
+        (completed, timeouts, errors, skipped)  = pdfGenerator.pdf_gen_list(file_list,
+            cssfile=info.css, timeoutSecs=info.timeout,
+            outdir_option=info.outdir, data_root=info.data_root,
             nohtml=info.nohtml, savehtml=info.savehtml, force=info.force,
-                                 debug=info.debug)
+            debug=info.debug, htmlonly=info.htmlonly)
     else:
-        (completed, timeouts, errors, skipped) = pdfGenerator.pdf_gen_file(info.file, cssfile=info.css, timeoutSecs=info.timeout, outdir_option=info.outdir, data_root=info.data_root, nohtml=info.nohtml, savehtml=info.savehtml, force=info.force, debug=info.debug)
+        (completed, timeouts, errors, skipped) = pdfGenerator.pdf_gen_file(info.file,
+            cssfile=info.css, timeoutSecs=info.timeout,
+            outdir_option=info.outdir, data_root=info.data_root,
+            nohtml=info.nohtml, savehtml=info.savehtml, force=info.force,
+            debug=info.debug, htmlonly=info.htmlonly)
     tFinish = datetime.datetime.now()
     logger.info("\n\n\n\nFinished at %s" % tFinish.strftime(STRFTIME))
     tDiff = tFinish - info.starttime

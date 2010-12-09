@@ -1,7 +1,3 @@
-# Author: Mark Redar <mark.redar@ucop.edu>
-# Copyright: See LICENSE.txt
-#<!-- BSD license copyright 2009 -->
-
 import os, sys
 import datetime
 import logging
@@ -79,7 +75,7 @@ outdir=/abs/dir - put all pdf files in /abs/dir
             root_dir, drop = os.path.split(options.dir)
             if not drop:
                 root_dir, drop = os.path.split(root_dir)
-	    options.outdir = options.outdir.lower() + '=' + os.path.join(root_dir, 'pdf')
+	        options.outdir = options.outdir.lower() + '=' + os.path.join(root_dir, 'pdf')
 	
     return options
 

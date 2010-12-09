@@ -9,34 +9,25 @@
   exclude-result-prefixes="#all"
   version="2.0">
   
-<!-- BSD license copyright 2009 -->
   <xsl:strip-space elements="*"/>
+  <xsl:include href="./xslt/dynaXML/docFormatter/ead/oac4/table.html.xsl"/>
+  <xsl:include href="./xslt/dynaXML/docFormatter/ead/oac4/ead.html.xsl"/>
   
-<!-- DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" -->
-
   <xsl:output method="xhtml"
     indent="yes"
     encoding="utf-8"
     media-type="text/html; charset=UTF-8" 
 	omit-xml-declaration="yes"
     />
-<!--
-              doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
-              doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
-          -->
   
-    <xsl:include
-        href="./xsl/docFormatterCommon.xsl"/>
-    <xsl:include
-        href="./xsl/parameter.xsl"/>
-    <xsl:include
-        href="./xsl/editURL.xsl"/>
-    <xsl:include href="./xsl/SSI.xsl"/>
-    <xsl:include href="./xsl/table.html.xsl"/>
-    <xsl:include href="./xsl/ead.html.xsl"/>
-    <xsl:include href="./xsl/online-items-graphic-element.xsl"/>
-  
+    <xsl:include href="./xslt/dynaXML/docFormatter/common/docFormatterCommon.xsl"/>
+    <xsl:include href="./xslt/dynaXML/docFormatter/ead/oac4/parameter.xsl"/>
+    <xsl:include href="./xslt/crossQuery/resultFormatter/common/editURL.xsl"/>
+    <xsl:include href="./xslt/common/SSI.xsl"/>
+    <xsl:include href="./xslt/common/scaleImage.xsl"/>
+    <xsl:include href="./xslt/common/online-items-graphic-element.xsl"/>
+    <xsl:include href="./xslt/dynaXML/docFormatter/ead/oac4/supplied-labels-headings.xsl"/>
+
   <xsl:key name="hit-num-dynamic" match="xtf:hit" use="@hitNum"/>
   <xsl:key name="hit-rank-dynamic" match="xtf:hit" use="@rank"/>
   <xsl:key name="hasContent" match="*[@id][.//dao|.//daogrp]" use="@id"/>
@@ -44,6 +35,15 @@
   <xsl:key name="not.archdesc" match="*[@id][not(ancestor-or-self::archdesc)]" use="@id"/>
   <xsl:key name="archdesc" match="archdesc[@id]|archdesc/*[@id][not(ancestor-or-self::dsc)]" use="@id"/>
   <xsl:key name="dsc" match="dsc[@id]|dsc/*[@id]" use="@id"/>
+
+  <xsl:key name="c0x" match="archdesc/*|c|c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12" use="@id"/>
+  <xsl:key name="hasContent" match="*[@id][.//dao|.//daogrp]" use="@id"/>
+  <xsl:key 
+	name="dscPositions" 
+	match="dscgrp|dsc|c|c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12"
+  >
+        <xsl:value-of select="@C-ORDER"/>
+  </xsl:key>
 
 <xsl:key name="daos" match="*[did/daogrp] | *[did/dao]" >
         <xsl:value-of select="@ORDER"/>
@@ -54,14 +54,41 @@
 <xsl:param name="view"/>
 <xsl:param name="style"/>
 <xsl:param name="pdfgen" select="'1'"/>
-
-<!--         .label { font-weight:bold; width: 10% !important; }     
-        .item { padding: .5em; } -->
-
-
-
+<xsl:param name="image_dir" select="'./images'"/>
 
 <xsl:variable name="page" select="/"/>
+
+<xsl:variable 
+    	name="NoSeries"
+        select = "not(boolean(
+        /ead/archdesc/dsc//c01[@level='series'] or
+        /ead/archdesc/dsc//c01[@level='subseries'] or
+        /ead/archdesc/dsc//c01[@level='recordgrp'] or
+        /ead/archdesc/dsc//c01[@level='collection'] or
+        /ead/archdesc/dsc//c01[@level='subgrp'] or
+        /ead/archdesc/dsc//c01[@level='subfonds'] or
+        /ead/archdesc/dsc//c01[@level='fonds'] or
+        /ead/archdesc/dsc//c01/c02[@level='series'] or
+        /ead/archdesc/dsc//c01/c02[@level='subseries'] or
+        /ead/archdesc/dsc//c01/c02[@level='recordgrp'] or
+        /ead/archdesc/dsc//c01/c02[@level='collection']
+        /ead/archdesc/dsc//c01/c02[@level='subgrp']
+        /ead/archdesc/dsc//c01/c02[@level='subfonds']
+        /ead/archdesc/dsc//c01/c02[@level='fonds']
+        ))"
+/>
+
+<xsl:function name="pdf:chopTitle">
+    <xsl:param name="title"/>
+    <xsl:choose>
+        <xsl:when test="string-length($title) > 100">
+            <xsl:value-of select="substring($title,1, 100)"/>...
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$title"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:function>
 
 <xsl:template match="/">
 <html>
@@ -88,15 +115,29 @@
 
 
         <div class="collection-admin-view">
-            <xsl:apply-templates select="$page/ead/frontmatter" mode="ead"/>
+            <xsl:apply-templates select="$page/ead/eadheader/filedesc" mode="ead"/>
+            <xsl:if test="$page/ead/eadheader/filedesc">
+                <pdf:nextpage name="front_matter" />
+            </xsl:if>
             <xsl:if test="$page/ead/frontmatter">
+		        <xsl:apply-templates select="$page/ead/frontmatter" mode="ead"/>
                 <hr/>
             </xsl:if>
-
-            <xsl:apply-templates select="$page/ead/archdesc/*[not(self::dsc)]" mode="ead"/>
+            <xsl:apply-templates select="$page/ead/archdesc" mode="ead">
+            <xsl:with-param name="img_src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/sq-eye_icon.gif</xsl:text>
+            </xsl:with-param>
+        </xsl:apply-templates>
+		<hr/>
 	</div>
 	<div class="collection-contents">
-                       <xsl:apply-templates select="$page/ead/archdesc/dsc" mode="pdfStart"/>
+        <xsl:apply-templates select="$page/ead/archdesc/dsc" mode="pdfStart">
+            <xsl:with-param name="img_src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/sq-eye_icon.gif</xsl:text>
+            </xsl:with-param>
+        </xsl:apply-templates>
 	</div>
 </body>
 </html>
@@ -114,24 +155,8 @@
     </div>
     <div class="pdf-header" id="subheader_{$dscID}" ></div>
     </xsl:if>
-    <xsl:variable 
-    	name="NoSeries"
-        select = "not(boolean(
-                         /ead/archdesc/dsc/c01[@level='subseries'] or
-                         /ead/archdesc/dsc/c01[@level='recordgrp'] or
-                         /ead/archdesc/dsc/c01[@level='collection'] or
-                         /ead/archdesc/dsc/c01/c02[@level='subseries'] or
-                         /ead/archdesc/dsc/c01/c02[@level='recordgrp'] or
-                         /ead/archdesc/dsc/c01/c02[@level='collection']
-        ))"
-                         />
-    <!--
-    <xsl:message>
-        NoSeries = <xsl:copy-of select='$NoSeries'/>
-    </xsl:message>
-    -->
     <xsl:apply-templates mode="pdf"
-        select="c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12">
+        select="dscgrp|dsc|c|c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12">
         <xsl:with-param name="tableStart" select="$NoSeries"/>
     </xsl:apply-templates>
 
@@ -171,7 +196,8 @@
     <div id="header_hr"><hr/></div>
     <div id="footer_hr"><hr/></div>
     <div id="footer_left" style="text-align: left;{$pdf-footer-background-left}">
-            <xsl:value-of select="$page/ead/archdesc/did/unittitle"/>
+        <xsl:apply-templates select="$page/ead/eadheader/filedesc//titleproper" mode="pdf-footer"/>
+
     </div>
     <div id="footer_mid" style="text-align:center;{$pdf-footer-background-mid}">
             <xsl:apply-templates select="$page/ead/archdesc/did/unitid" mode="collectionId"/>
@@ -181,52 +207,69 @@
         <pdf:pagenumber />
     </div>
 
-    <div id="header_img">
-        <img class="icon" alt="[Online Archive of California]" border="0"
-            src="some_logo_file.png" />
-    </div>
-    <!--
-    <div id="header_main" style="text-align: left; {$pdf-header-background-0};">
-        -->
-    <xsl:variable 
-    	name="NoSeries"
-        select = "not(boolean(
-                         /ead/archdesc/dsc/c01[@level='subseries'] or
-                         /ead/archdesc/dsc/c01[@level='recordgrp'] or
-                         /ead/archdesc/dsc/c01[@level='collection'] or
-                         /ead/archdesc/dsc/c01/c02[@level='subseries'] or
-                         /ead/archdesc/dsc/c01/c02[@level='recordgrp'] or
-                         /ead/archdesc/dsc/c01/c02[@level='collection']
-        ))"
-    />
     <div id="header_main">
-        <xsl:choose>
-            <xsl:when test="not($NoSeries)">
-                <xsl:variable 
-                	name="pdfOutlineStyle" 
-                    select="concat('-pdf-outline: true;', ' ',
-                        '-pdf-outline-open: true;', ' ',
-                        '-pdf-outline-level: 0',
-                        '; '
-                   )"
-                 />
-                <xsl:attribute name='style' select="concat('text-align: left; ',
-                    $pdfOutlineStyle,
-                    $pdf-header-background-0, ';'
-                    )"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:attribute name='style' select="concat('text-align: left; ',
-                    $pdf-header-background-0, ';'
-                    )"/>
-            </xsl:otherwise>
-        </xsl:choose>
-        
-	    <xsl:apply-templates select="$page/ead/eadheader/filedesc/titlestmt/titleproper[1]" mode="ead"/>
+        <table cellspacing="0pt" cellpadding="0pt">
+    <tr valign="top">
+        <td style="width: 170px;">
+        <xsl:element name="img">
+            <xsl:attribute name="height" select="'48'"/>
+            <xsl:attribute name="width" select="'163'"/>
+            <xsl:attribute name="align" select="'left'"/>
+            <!--<xsl:attribute name="style" select="'padding-right:.5cm;'"/>-->
+            <xsl:attribute name="title" select="'No online items'"/>
+            <xsl:attribute name="alt" select="'No online items'"/>
+            <xsl:attribute name="class" select="'eye-icon'"/>
+            <xsl:attribute name="src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/oac_logo.png</xsl:text>
+            </xsl:attribute>
+        </xsl:element>
+    </td>
+    <td style="width: 1px;"></td>
+    <td style="text-align: left;">
+        <!--<br/>-->
+        <xsl:variable name="content_host">
+            <xsl:text>http://oac.cdlib.org/findaid/</xsl:text>
+        </xsl:variable>
+	    <xsl:variable name="ark" select="$page/ead/eadheader/eadid/@identifier"/>
+        <xsl:variable name="link">
+            <xsl:value-of select="$content_host"/>
+            <xsl:value-of select="$ark"/>
+        </xsl:variable>
+        <xsl:element name="a">
+            <xsl:attribute name="href" select="$link"/>
+            <xsl:value-of select="$link"/>
+        </xsl:element>
+
         <br/>
-	    <xsl:variable name="ark" select="($page)/ead/eadheader/eadid/@identifier"/>
-        <a
-            href="http://oac.cdlib.org/findaid/{$ark}">http://oac.cdlib.org/findaid/<xsl:value-of select="$ark"/></a>
+   <xsl:choose>
+       <xsl:when test="not($page//dao | $page//daogrp)">
+        <xsl:element name="img">
+            <xsl:attribute name="height" select="'13'"/>
+            <xsl:attribute name="width" select="'15'"/>
+            <xsl:attribute name="title" select="'No online items'"/>
+            <xsl:attribute name="alt" select="'No online items'"/>
+            <xsl:attribute name="class" select="'eye-icon'"/>
+            <xsl:attribute name="src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/no-online-available.gif</xsl:text>
+            </xsl:attribute>
+        </xsl:element>
+				<span class="no-online-items">No online items</span>
+	</xsl:when>
+	<xsl:otherwise>
+	    <xsl:call-template name="online-items-graphic-element">
+		    <xsl:with-param name="href" select="$link"/>
+            <xsl:with-param name="img_src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/eye_icon.gif</xsl:text>
+            </xsl:with-param>
+	    </xsl:call-template>
+	</xsl:otherwise>
+  </xsl:choose>
+  </td>
+    </tr>
+  </table>
     </div>
 </xsl:template>
 
@@ -254,7 +297,7 @@
     @frame header_main {
         -pdf-frame-content: header_main;
         top: .5cm;
-        left: 6cm;
+        left: 2cm;
         right: 2cm;
         height: 1.25cm;
         <xsl:value-of select="$pdf-frame-border"/>
@@ -437,7 +480,7 @@
 }
 
     <!-- Item needs to be a c01 or c02 to of interest -->
-    <xsl:apply-templates select="c01|c02" mode="pdf-head"/>
+    <xsl:apply-templates select="dscgrp|dsc|c01|c02" mode="pdf-head"/>
 </xsl:template>
 
 <xsl:template match="c01|c02" mode="pdf-head">
@@ -447,10 +490,12 @@
 
 <xsl:variable 
 	name="seriesTrigger" 
-	select="if ( (@level='series' or @level='subseries' or @level='recordgrp' or @level='collection') and (local-name()='c01' or local-name()='c02') )
-	then 'True' else 'False'"></xsl:variable>
+	select="if ( (@level='series' or @level='subseries' or @level='recordgrp' or @level='collection'  
+			or @level='subgrp' or @level='subfonds' or @level='fonds') 
+			and (local-name()='c01' or local-name()='c02') )
+	then ' hr' else ''"></xsl:variable>
 
-    <xsl:if test="$seriesTrigger = 'True'">
+    <xsl:if test="$seriesTrigger = ' hr'">
     @page sec_<xsl:value-of select="translate(@id, '.', '_')"/> {
 	
 	size: letter;	
@@ -531,7 +576,6 @@
     }
 	
 }
-<!--<xsl:apply-templates select="c01|c02" mode="pdf-head"/> -->
 
 </xsl:if> <!-- $seriesTrigger = 'True' -->
 
@@ -539,20 +583,16 @@
 
 </xsl:template>
 
-<xsl:template match="c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12"
+<xsl:template match="dscgrp|dsc|c|c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12"
     name="pdfClevel" mode="pdf"> 
 
     <xsl:param name="tableStart" select="false()"/>
-    <!--
-    <xsl:message>
-        tableStart = <xsl:copy-of select="$tableStart"/>
-        element = <xsl:copy-of select="local-name()"/>
-    </xsl:message>
-    -->
 
 <xsl:variable 
 	name="seriesTrigger" 
-	select="if ( (@level='series' or @level='subseries' or @level='recordgrp' or @level='collection') and (local-name()='c01' or local-name()='c02') )
+	select="if ( (@level='series' or @level='subseries' or @level='recordgrp' or @level='collection'  
+			or @level='subgrp' or @level='subfonds' or @level='fonds') 
+			and (local-name()='c01' or local-name()='c02') )
 	then ' hr' else ''"></xsl:variable>
 
     <xsl:variable name="pdf-header-background" select="if ($pdfgen='debug') then 'background-color: red;' else ''">
@@ -564,29 +604,45 @@
     <xsl:variable name="seriesID" ><xsl:value-of select="translate(@id, '.', '_')"/></xsl:variable>
 
 <xsl:if test="((local-name()='c01') and ($seriesTrigger != ''))">
-    <pdf:nextpage name="sec_{$seriesID}" />
+    <pdf:nexttemplate name="sec_{$seriesID}" />
     <div class="pdf-header" id="header_{$seriesID}" style="display:inline;
         white-space: nowrap;{$pdf-header-background}" >
-        <xsl:apply-templates select=" did/unitid | did/unitdate | did/unittitle " mode="ead-dsc"/>
-		<xsl:apply-templates select="did/dao | did/daogrp" mode="ead-dsc"/>
+        <xsl:variable name="pdfHeaderTitle">
+            <xsl:apply-templates select=" did/unitid | did/unitdate | did/unittitle " mode="ead-dsc"/>
+        </xsl:variable>
+        <xsl:value-of select="pdf:chopTitle($pdfHeaderTitle)"/>
+		<xsl:apply-templates select="did/dao | did/daogrp" mode="ead-dsc">
+            <xsl:with-param name="img_src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/sq-eye_icon.gif</xsl:text>
+            </xsl:with-param>
+        </xsl:apply-templates>
     </div>
     <div class="pdf-header" id="subheader_{$seriesID}" ></div>
 </xsl:if>
 <xsl:if test="((local-name()='c02') and ($seriesTrigger != ''))">
     <pdf:nexttemplate name="sec_{$seriesID}" />
     <div class="pdf-header" id="subheader_{$seriesID}" style="display:inline; white-space: nowrap;{$pdf-subheader-background}" >
-        <xsl:apply-templates select=" did/unitid | did/unitdate | did/unittitle " mode="ead-dsc"/>
-			<xsl:apply-templates select="did/dao | did/daogrp" mode="ead-dsc"/>
+        <xsl:variable name="pdfHeaderTitle">
+            <xsl:apply-templates select=" did/unitid | did/unitdate | did/unittitle " mode="ead-dsc"/>
+        </xsl:variable>
+        <xsl:value-of select="pdf:chopTitle($pdfHeaderTitle)"/>
+	    <xsl:apply-templates select="did/dao | did/daogrp" mode="ead-dsc">
+        <xsl:with-param name="img_src">
+            <xsl:value-of select="$image_dir"/>
+            <xsl:text>/sq-eye_icon.gif</xsl:text>
+        </xsl:with-param>
+        </xsl:apply-templates>
         </div>
 </xsl:if>
 
-    <xsl:variable name="pdf-th-background" select="if ($pdfgen='debug') then 'background-color: red;' else ''">
+    <xsl:variable name="pdf-th-background" select="if ($pdfgen='debug') then 'background-color: blue;' else ''">
     </xsl:variable>
 
 <xsl:choose>
     <xsl:when test="$seriesTrigger != '' or $tableStart">
 
-        <table cellspacing="0pt" cellpadding="0pt"> <!--border="1"-->
+        <table cellspacing="0pt" cellpadding="0pt">
     <tr valign="top">
         <th style="width: 15%;{$pdf-th-background}"></th>
         <th style="{$pdf-th-background}"></th>
@@ -598,7 +654,7 @@
 </xsl:when><!-- <xsl:when test="$seriesTrigger != ''"> -->
 <xsl:otherwise><!-- not a series, just rows no table -->
     <xsl:call-template name="pdfrows" />
-</xsl:otherwise><!-- not a series, just rows no table -->
+</xsl:otherwise>
 </xsl:choose>
 
 </xsl:template>
@@ -607,12 +663,10 @@
 <xsl:template name="pdfrows">
 <xsl:variable 
 	name="seriesTrigger" 
-	select="if ( (@level='series' or @level='subseries' or @level='recordgrp' or @level='collection') and (local-name()='c01' or local-name()='c02') )
+	select="if ( (@level='series' or @level='subseries' or @level='recordgrp' or @level='collection'  
+			or @level='subgrp' or @level='subfonds' or @level='fonds') 
+			and (local-name()='c01' or local-name()='c02') )
 	then ' hr' else ''"></xsl:variable>
-
-<xsl:variable 
-	name="itemIndent" 
-	select="concat((number(substring(local-name(),3,1))-2)*2,'em')"></xsl:variable>
 
             <xsl:variable name="hasNotes" select="boolean(
 did/abstract| did/head| did/langmaterial| did/materialspec| did/physdesc| did/note| did/origination| did/physloc| 
@@ -622,17 +676,25 @@ controlaccess | custodhist | fileplan | head | index | note | odd | dsc | origin
 phystech | prefercite | processinfo | relatedmaterial | scopecontent | separatedmaterial | thead | userestrict)"
 />
 
+    <xsl:variable name="pdf-data0-background" select="if ($pdfgen='debug') then 'background-color: yellow;' else ''">
+    </xsl:variable>
+    <xsl:variable name="pdf-data1-background" select="if ($pdfgen='debug') then 'background-color: green;' else ''">
+    </xsl:variable>
+
 <div class="cx{$seriesTrigger}">
     <xsl:if test="@id">
       <xsl:attribute name="id" select="@id"/>
     </xsl:if>
     <tr valign="top">
-      <td valign="top">
+        <td valign="top" style="{$pdf-data0-background}">
 
         <div class="c">
     	<xsl:choose>
     	  <xsl:when test="did/container">
+              <xsl:variable name="stuff">
     		<xsl:apply-templates select="did/container" mode="container"/>
+        </xsl:variable>
+        <xsl:value-of select="$stuff"/>
     	  </xsl:when>
     	  <xsl:otherwise>
     		<xsl:text>&#160;</xsl:text>
@@ -642,7 +704,7 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 
        </td>
 
-  <td valign="top" style="margin-left: {$itemIndent};">
+       <td valign="top" style="padding-left:1pc; {$pdf-data1-background}">
 
          <div class="{name()}">
 		<p>
@@ -658,11 +720,14 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 
                 <xsl:attribute name='style' select="$pdfOutlineStyle"/>
             </xsl:if>
-			<!-- xsl:apply-templates select="did" mode="ead"/ -->
             <xsl:apply-templates select="did/unitid | did/unitdate | did/unittitle " mode="ead-dsc"/>
-			<xsl:apply-templates select="did/dao | did/daogrp" mode="ead-dsc"/>
+			<xsl:apply-templates select="did/dao | did/daogrp" mode="ead-dsc">
+            <xsl:with-param name="img_src">
+                <xsl:value-of select="$image_dir"/>
+                <xsl:text>/sq-eye_icon.gif</xsl:text>
+            </xsl:with-param>
+        </xsl:apply-templates>
 		</p>
-        <!-- this stuff needs to go into next row.... -->
 	<xsl:if test="$hasNotes">
 	<div class="c0x-notes"> 
 		<xsl:apply-templates select="did/abstract| did/head| did/langmaterial| did/materialspec| 
@@ -689,23 +754,59 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
         <hr/>
 </xsl:if>
 
-<xsl:apply-templates select="c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12"
+<xsl:apply-templates select="dscgrp|dsc|c|c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12"
     mode="pdf"/>
 
 </xsl:template>
 
+<xsl:template match="titleproper[@type='filing']" mode="pdf-footer"/>
+<xsl:template match="titleproper[name(..)='titlestmt'][not(@type='filing')]" mode="pdf-footer">
+        <xsl:variable name="pdfFooterTitle">
+            <xsl:apply-templates mode="ead"/>
+    </xsl:variable>
+    <h3><xsl:value-of select="pdf:chopTitle($pdfFooterTitle)"/></h3>
+</xsl:template>
 
-<xsl:template match="dao" mode="ead-dsc">
-<xsl:variable name="hackedLink" select="
-        replace(replace(dao[1]/@href,'http://ark.cdlib.org/ark:/', concat('/' , 'ark:/') ) ,'/$','')" />
+<xsl:template match="titleproper[name(..)='titlestmt'][not(@type='filing')]" mode="ead">
+ <h1>
+    <xsl:choose>
+         <xsl:when test="not($NoSeries)">
+                <xsl:attribute name='style' select="concat('-pdf-outline: true;', ' ',
+                        '-pdf-outline-open: true;', ' ',
+                        '-pdf-outline-level: 0',
+                        '; '
+                   )"
+                 />
+         </xsl:when>
+         <xsl:otherwise/>
+     </xsl:choose>
+     <xsl:apply-templates mode="ead"/>
+ </h1>
+</xsl:template>
+
+
+<!-- ead.html.xsl overrides, now that I import ead.html.xsl, any defs in this
+stylesheet override the ead.html.xsl templates-->
+<xsl:template match="dao" mode="ead-dsc ead" priority='2'>
+    <xsl:param name="img_src">
+        <xsl:value-of select="$image_dir"/>
+        <xsl:text>/sq-eye_icon.gif</xsl:text>
+    </xsl:param>
+    <!--
+    <xsl:message>
+        ==========
+        HREF:<xsl:value-of select="@href"/>
+        POI:<xsl:value-of select="@poi"/>
+        .: <xsl:value-of select="."/>
+        ==========
+    </xsl:message>
+    -->
+<xsl:variable name="hackedLink" select="replace(replace(@href,'http://ark.cdlib.org/ark:/', 'ark:/' ) ,'/$','')" />
         <xsl:variable name="link">
 		   <xsl:choose>
 			<xsl:when test="@poi">
                 <xsl:text>http://content.cdlib.org/</xsl:text>
 				<xsl:value-of select="@poi"/>
-                <!--
-				<xsl:text>/?brand=oac4</xsl:text>
-                -->
 			</xsl:when>
 			<xsl:when test="@href
                         		and ( starts-with(@role,'http://oac.cdlib.org/arcrole/link') )
@@ -713,7 +814,6 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
                         		and not ( starts-with(@href,'/ark:/13030/') )
                         		or ( ends-with(@content-role,'link/text') )
 			">
-                <xsl:text>http://content.cdlib.org/</xsl:text>
 				<xsl:value-of select="@href"/>
 			</xsl:when>
 			<xsl:when test="starts-with(@href,'http://ark.cdlib.org/ark:/')
@@ -721,9 +821,6 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 			">
                 <xsl:text>http://content.cdlib.org/</xsl:text>
 				<xsl:value-of select="$hackedLink"/>
-                <!--
-				<xsl:text>/?brand=oac4</xsl:text>
-                -->
 			</xsl:when>
 			<xsl:otherwise/>
 		   </xsl:choose>
@@ -731,37 +828,51 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 
        <xsl:call-template name="online-items-graphic-element">
 		<xsl:with-param name="href" select="$link"/>
-        <xsl:with-param name="img_src"
-            select="'./images/eye_icon.gif'"/>
+        <xsl:with-param name="img_src">
+            <xsl:value-of select="$image_dir"/>
+            <xsl:text>/eye_icon.gif</xsl:text>
+        </xsl:with-param>
         <xsl:with-param name="text">
             <xsl:value-of select="$link"/>
         </xsl:with-param>
        </xsl:call-template>
 </xsl:template> 
 
-<xsl:template match="daogrp" mode="ead-dsc" >
+<xsl:template match="daogrp" mode="ead-dsc ead" priority='2'>
 		   <xsl:variable name="link">
                <xsl:text>http://content.cdlib.org/</xsl:text>
 			   <xsl:value-of select="@poi"/>
-            <!--
-			<xsl:text>/?brand=oac4</xsl:text>
-            -->
 		   </xsl:variable>
        <xsl:call-template name="online-items-graphic-element">
 		<xsl:with-param name="href" select="$link"/>
-        <xsl:with-param name="img_src"
-            select="'./images/eye_icon.gif'"/>
+        <xsl:with-param name="img_src">
+            <xsl:value-of select="$image_dir"/>
+            <xsl:text>/eye_icon.gif</xsl:text>
+        </xsl:with-param>
         <xsl:with-param name="text">
             <xsl:value-of select="$link"/>
         </xsl:with-param>
        </xsl:call-template>
 </xsl:template> 
 
-<!--
-<xsl:template match="unitid" mode="ead-dsc">
-<xsl:value-of select="replace(.,'\s','&#160;')"/>
-<xsl:text> </xsl:text>
+<xsl:template match="chronitem" mode="ead" priority='2'>
+<xsl:choose>
+<xsl:when test="eventgrp">
+<tr>
+<td valign="top" width="10%"><xsl:apply-templates select="date" mode="ead"/></td>
+<td align="left"><xsl:apply-templates select="eventgrp/event[1]" mode="ead"/></td>
+</tr>
+<xsl:for-each select="eventgrp/event[position()>1]">
+<tr><td><xsl:text disable-output-escaping='yes'>&#160;</xsl:text></td><td><xsl:apply-templates mode="ead"/></td></tr>
+</xsl:for-each>
+</xsl:when>
+<xsl:otherwise>
+<tr>
+<td valign="top" width="10%"><xsl:apply-templates select="date" mode="ead"/></td>
+<td align="left"><xsl:apply-templates select="event" mode="ead"/></td>
+</tr>
+</xsl:otherwise>
+</xsl:choose>
 </xsl:template>
--->
 
 </xsl:stylesheet>
