@@ -5,7 +5,8 @@ then
     echo "PATH to Programs: ${PATH_TO_PROGS}"
 else
     SCRIPT=`readlink -f $0`
-    PATH_TO_PROGS=`dirname ${SCRIPT}`
+    SCRIPTS_DIR=`dirname ${SCRIPT}`
+    PATH_TO_PROGS=`dirname ${SCRIPTS_DIR}`
     export PATH_TO_PROGS 
     echo "PATH to Programs: ${PATH_TO_PROGS}"
 fi
