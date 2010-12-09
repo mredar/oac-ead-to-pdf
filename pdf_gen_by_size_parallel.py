@@ -81,7 +81,7 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSS
     cssfile=("CSS file", 'option'),
     force=("Overwrite existing pdf", 'flag'),
     savehtml=('Save intermediate html files', 'flag'),
-    outdir=('parallel=/abs/dir - produce output in parallel directory structure, with root of /abs/dir subdir=name - produce output in subdir "name" outdir=/abs/dir - put all pdf files in /abs/dir. If not set, pdf will be created in same directory as source file.', 'option', 'o'),
+    outdir=('parallel=/abs/dir - produce output in parallel directory structure, with root of /abs/dir subdir=name - produce output in subdir "name" outdir=/abs/dir - put all pdf files in /abs/dir. If not set, pdf will be created in same directory as source file.', 'option'),
     #data_root=('Use when in list or file mode and want to produce data in a parallel directory. Points to root of data tree.  Parallel output will replace this root with the parallel directory root.', 'option'),
     logprefix=('Use <LOGPREFIX> for log file names.', 'option'),
 )
