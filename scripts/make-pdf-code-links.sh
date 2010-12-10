@@ -5,8 +5,10 @@
 # XTF style.
 
 # Remove if they exist
-echo 'Removing directories under ./xslt'
-echo 'Type Y to contiue and delete ./xslt'
+wdir=`pwd`
+echo "\nRemoving directories under ${wdir}/xslt\n"
+echo "DELETE ${wdir}/xslt????\n" 
+echo "ENTER Y to DELETE AND LINK\n"
 read yesno
 
 if  [ "${yesno}" = "Y" ]
