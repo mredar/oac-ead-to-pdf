@@ -11,7 +11,7 @@ LOG_LEVEL = logging.INFO
 TIMEOUT_LOG_LEVEL = 90
 CSSFILE = os.path.join(os.environ.get('PATH_TO_PROGS', '.'), "oac_pdf.css")
 
-def pdf_gen_wrap(filename, num, timeout=60, cssfile='/findaid/developers/mredar/pdf_gen/oac_pdf.css', force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
+def pdf_gen_wrap(filename, num, timeout=60, cssfile='/dsc/branches/production/oac-ead-to-pdf/oac_pdf.css', force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
     '''Wrapper for pdf_gen.generator.pdf_gen_file for call from pp'''
     #setup logging for each file
     logfile =logprefix+'-WORKER-'+str(num)+'.log'

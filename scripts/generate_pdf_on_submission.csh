@@ -1,7 +1,7 @@
 #! /usr/bin/csh
 
 # wrapper for python prog generate_pdf_on_submission.py
-setenv PATH_TO_PROGS /dsc/branches/production/pdf_gen
+setenv PATH_TO_PROGS /dsc/branches/production/oac-ead-to-pdf
 setenv PYTHONPATH $PATH_TO_PROGS
 setenv CLASSPATH=$PATH_TO_PROGS/javalib/lib/saxonb-8.9.jar:$PATH_TO_PROGS/javalib/classes
 

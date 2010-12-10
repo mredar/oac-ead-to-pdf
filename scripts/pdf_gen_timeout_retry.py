@@ -29,7 +29,7 @@ try:
     PATH_TO_PROGS = pdf_gen.PATH_TO_PROGS 
 except AttributeError:
     PATH_TO_PROGS = os.environ.get("PATH_TO_PROGS",
-                            '/dsc/branches/production/pdf_gen/oac4_to_pdf.xslt')
+                            '/dsc/branches/production/oac-ead-to-pdf/oac4_to_pdf.xslt')
 
 try:
     XSLTFILE = pdf_gen.XSLTFILE 

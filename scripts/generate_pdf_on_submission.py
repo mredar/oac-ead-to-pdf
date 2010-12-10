@@ -155,7 +155,7 @@ def main(args):
     logging.basicConfig(level=logging.ERROR,
                         stream=log_stringio)
                             
-    generator = pdf_gen.OAC_EADtoPDFGenerator(os.path.join(os.environ.get("PATH_TO_PROGS", '/dsc/branches/production/pdf_gen'), 'oac4_to_pdf.xslt'))
+    generator = pdf_gen.OAC_EADtoPDFGenerator(os.path.join(os.environ.get("PATH_TO_PROGS", '/dsc/branches/production/oac-ead-to-pdf'), 'oac4_to_pdf.xslt'))
     (completed, timeouts, errors, skipped) = generator.pdf_gen_file(inputfile,
                                              timeoutSecs=64,
                                              outdir_option='parallel',
