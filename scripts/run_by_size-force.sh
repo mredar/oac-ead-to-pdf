@@ -7,11 +7,9 @@ else
     SCRIPT=`readlink -f $0`
     SCRIPTS_DIR=`dirname ${SCRIPT}`
     PATH_TO_PROGS=`dirname ${SCRIPTS_DIR}`
-    export PATH_TO_PROGS 
     echo "PATH to Programs: ${PATH_TO_PROGS}"
 fi
 CLASSPATH=$PATH_TO_PROGS/javalib/lib/saxonb-8.9.jar:$PATH_TO_PROGS/javalib/classes:${CLASSPATH}
-export CLASSPATH
 if [ $LOG_DIR ]
 then
     echo "LOG DIR: ${LOG_DIR}"
@@ -24,7 +22,6 @@ then
     echo "DATA DIR: ${DATA_DIR}"
 else
     DATA_DIR=/dsc/data/in/oac-ead/prime2002/
-    export DATA_DIR 
     echo "DATA DIR: ${DATA_DIR}"
 fi
 
