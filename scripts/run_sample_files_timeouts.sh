@@ -3,7 +3,7 @@
 SCRIPT=`readlink -f $0`
 SCRIPTS_DIR=`dirname ${SCRIPT}`
 
-source ${SCRIPTS_DIR}/set-pdf-env.sh
+. ${SCRIPTS_DIR}/set-pdf-env.sh
 
 if [ $PATH_TO_PROGS ]
 then

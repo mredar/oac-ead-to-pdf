@@ -3,7 +3,7 @@
 SCRIPT=`readlink -f $0`
 SCRIPTS_DIR=`dirname ${SCRIPT}`
 
-source ${SCRIPTS_DIR}/set-pdf-env.sh
+. ${SCRIPTS_DIR}/set-pdf-env.sh
 
 if [ $PATH_TO_PROGS ]
 then
@@ -34,7 +34,7 @@ else
     echo "DATA DIR: ${DATA_DIR}"
 fi
 
-
+exit;
 nice -19 ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.sh -outdir=parallel -logprefix=${LOG_DIR}/pdf_gen_by_size_parallel -cssfile=${PATH_TO_PROGS}/oac_pdf.css -force ${DATA_DIR} 2>&1 > ${LOG_DIR}/pdf_gen_by_size_parallel.out
 
 set logsnip = '`tail ${LOG_DIR}/pdf_gen_by_size_parallel.log`'
