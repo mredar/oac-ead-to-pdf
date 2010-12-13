@@ -5,15 +5,17 @@
 # XTF style.
 
 # Remove if they exist
-wdir=`pwd`
-echo "\nRemoving directories under ${wdir}/xslt\n"
-echo "DELETE ${wdir}/xslt????\n" 
-echo "ENTER Y to DELETE AND LINK\n"
-read yesno
+#wdir=`pwd`
+#echo "\nRemoving directories under ${wdir}/xslt\n"
+#echo "DELETE ${wdir}/xslt????\n" 
+#echo "ENTER Y to DELETE AND LINK\n"
+#read yesno
+#if  [ "${yesno}" = "Y" ]
+#then
 
-if  [ "${yesno}" = "Y" ]
+if  [ -d /dsc/branches/production/xtf/style/dynaXML ]
 then
-    set -xv
+set -xv
 # remove existing
 rm -rf ./xslt
 # Build necessary directories
@@ -36,4 +38,6 @@ ln /dsc/branches/production/xtf/style/common/scaleImage.xsl ./xslt/common/scaleI
 ln /dsc/branches/production/xtf/style/dynaXML/docFormatter/common/docFormatterCommon.xsl ./xslt/dynaXML/docFormatter/common/docFormatterCommon.xsl
 ln /dsc/branches/production/xtf/style/crossQuery/resultFormatter/common/editURL.xsl ./xslt/crossQuery/resultFormatter/common/editURL.xsl
 ln /dsc/branches/production/xtf/style/xtfCommon/xtfCommon.xsl ./xslt/xtfCommon/xtfCommon.xsl
+else
+    echo "You're not on a DSC server. You probably don't want to run this script"
 fi
