@@ -5,8 +5,6 @@ import datetime
 from pdf_gen_list_parallel import run_file_list_with_pp
 from pdf_gen import OAC_EADtoPDFGenerator
 import plac
-#from pdf_gen import OAC_EADtoPDFGenerator as PDFGen
-#from pdf_gen import Bunch
 
 FILESIZE = 2**13 #8K
 FILESIZE_MAX = 2**27 # ~100M
@@ -21,12 +19,13 @@ PDF Run by size: Runs the OAC EAD xml files through our PDF Generaotor. Runs
 them by increasing size.
 '''
 
-def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel'):
+def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
     num_attempt = 0
     filelist = []
     successlist = []
     timeoutlist = []
     errorlist = []
+    excludelist = [ line.strip() for line in open(exclude_file).readlines()] if exclude_file else []
     filesize_cur = FILESIZE
     filesize_last = 0
     timeout_cur = 0
@@ -41,6 +40,9 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSS
             for f in files:
                 if OAC_EADtoPDFGenerator.isNot_DC_or_METS_XML(f):
                     path = os.path.join(root, f)
+                    if path in excludelist:
+                        logging.info("EXCLUDING FILE:"+path)
+                        continue
                     if filesize_last < os.stat(path).st_size <= filesize_cur:
                         filelist.append(path)
         num_attempt += len(filelist)
@@ -84,9 +86,10 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSS
     outdir=('parallel=/abs/dir - produce output in parallel directory structure, with root of /abs/dir subdir=name - produce output in subdir "name" outdir=/abs/dir - put all pdf files in /abs/dir. If not set, pdf will be created in same directory as source file.', 'option'),
     #data_root=('Use when in list or file mode and want to produce data in a parallel directory. Points to root of data tree.  Parallel output will replace this root with the parallel directory root.', 'option'),
     logprefix=('Use <LOGPREFIX> for log file names.', 'option'),
+    exclude_file=('List of files to be excluded (absolute path).', 'option'),
 )
 
-def main(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel'):
+def main(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
     logprefix = ''.join((logprefix, '-', str(datetime.date.today())))
     logfile = ''.join((logprefix,'.log'))
     timeout=int(timeout)
@@ -95,7 +98,7 @@ def main(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, s
     # build file lists according to size, how to report progress?
     
 
-    num_attempt, successlist, timeoutlist, errorlist, timeout_end_of_run = pdf_gen_by_size_parallel(directory_root, ncpu=ncpu, timeout=timeout, cssfile=cssfile, force=force, savehtml=savehtml, outdir=outdir, logprefix=logprefix)
+    num_attempt, successlist, timeoutlist, errorlist, timeout_end_of_run = pdf_gen_by_size_parallel(directory_root, ncpu=ncpu, timeout=timeout, cssfile=cssfile, force=force, savehtml=savehtml, outdir=outdir, logprefix=logprefix, exclude_file=exclude_file)
 
 
     report(num_attempt, successlist, errorlist, timeoutlist, timeout_end_of_run)

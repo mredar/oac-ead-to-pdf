@@ -68,7 +68,7 @@ def main(args=sys.argv):
             pdf_msg = 'missing'
             if pdfinfo[1]:
                 pdf_msg = 'zero size'
-            print "%s mtime:%s ctime:%s size:%1.2fM PDF %s is %s" % (srcinfo[0],
+            print "\n%s mtime:%s ctime:%s size:%1.2fM\n%s is %s" % (srcinfo[0],
                     datetime.fromtimestamp(srcinfo[1].st_mtime).strftime('%Y%m%d:%H:%M:%S'),
                     datetime.fromtimestamp(srcinfo[1].st_ctime).strftime('%Y%m%d:%H:%M:%S'),
                     srcinfo[1].st_size/1000000.0,
