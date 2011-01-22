@@ -39,7 +39,7 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSS
         for root, dirs, files in os.walk(directory_root):
             for f in files:
                 if OAC_EADtoPDFGenerator.isNot_DC_or_METS_XML(f):
-                    path = os.path.join(root, f)
+                    path = os.path.abspath(os.path.join(root, f))
                     if path in excludelist:
                         logging.info("EXCLUDING FILE:"+path)
                         continue
