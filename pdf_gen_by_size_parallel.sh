@@ -12,4 +12,4 @@ fi
 CLASSPATH=$PATH_TO_PROGS/javalib/lib/saxonb-8.9.jar:$PATH_TO_PROGS/javalib/classes:${CLASSPATH}
 export CLASSPATH
 
-nice -20 python ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.py $@
+python ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.py $@
