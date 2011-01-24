@@ -34,15 +34,16 @@ else
     echo "DATA DIR: ${DATA_DIR}"
 fi
 
-nice -19 ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.sh -outdir=parallel -logprefix=${LOG_DIR}/pdf_gen_by_size_parallel -cssfile=${PATH_TO_PROGS}/oac_unicode_pdf.css ${DATA_DIR} -exclude_file=${SCRIPTS_DIR}/exclude.list -force 2>&1 > ${LOG_DIR}/pdf_gen_by_size_parallel.out
+nice -19 ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.sh -outdir=parallel -logprefix=${LOG_DIR}/pdf_gen_by_size_parallel -cssfile=${PATH_TO_PROGS}/oac_pdf.css -exclude_file=${SCRIPTS_DIR}/exclude.list -force ${DATA_DIR} 2>&1 > ${LOG_DIR}/pdf_gen_by_size_parallel.out
 
-set logsnip = '`tail ${LOG_DIR}/pdf_gen_by_size_parallel.log`'
+datefix=`date +%Y-%m-%d`
+logsnip=`tail ${LOG_DIR}/pdf_gen_by_size_parallel-${datefix}.log`
 
 mail mark.redar@ucop.edu <<%%
 subject: PDF Job Done
 
 
-pdf_gen_by_size_parallel prime2002 for dsc on $HOSTNAME run finished.
+pdf_gen_by_size_parallel prime2002 for dsc on $VORO_HOSTNAME run finished.
 
 $logsnip
 
