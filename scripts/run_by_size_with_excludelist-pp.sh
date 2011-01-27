@@ -44,7 +44,7 @@ mail mark.redar@ucop.edu <<%%
 subject: PDF Job Done
 
 
-pdf_gen_by_size_parallel prime2002 for dsc on ${VORO_HOSTNAME ru}n finished.
+pdf_gen_by_size_parallel prime2002 for dsc on ${VORO_HOSTNAME} run finished.
 
 ${logsnip}
 
