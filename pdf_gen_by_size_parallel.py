@@ -90,7 +90,7 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSS
 )
 
 def main(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
-    logprefix = ''.join((logprefix, '-', str(datetime.date.today())))
+    logprefix = ''.join((logprefix, '-', str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))))
     logfile = ''.join((logprefix,'.log'))
     timeout=int(timeout)
     logging.basicConfig(filename=logfile, level=logging.INFO)

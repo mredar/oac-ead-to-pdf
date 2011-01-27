@@ -83,7 +83,7 @@ def run_file_list_with_pp(filelist, ncpu=None, timeout=600, cssfile=CSSFILE, for
     logprefix=('Use <LOGPREFIX> for log file names.', 'option'),
 )
 def main(list_file, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
-    logprefix = ''.join((logprefix, '-', str(datetime.date.today())))
+    logprefix = ''.join((logprefix, '-', str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))))
     logfile = ''.join((logprefix,'.log'))
     timeout=int(timeout)
     #jobslog = open('pdf_list_parallel-JOBS.log','a')
