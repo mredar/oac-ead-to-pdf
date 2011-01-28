@@ -193,11 +193,6 @@ class OAC_EADtoPDFGenerator(object):
         self.xsltpath = path_to_xslt
         self.postProcessor = PostProcessor_OACEAD()
 
-    '''
-    def __init__(self, timeout=600):
-        self.timeout = 600
-    '''
-
     def canGeneratePDF(self, fname):
         return OAC_EADtoPDFGenerator.isNot_DC_or_METS_XML(fname)
 

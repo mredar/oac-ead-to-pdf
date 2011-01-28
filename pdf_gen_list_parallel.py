@@ -8,6 +8,7 @@ import plac
 
 LOG_BACKUP_COUNT = 10
 LOG_LEVEL = logging.INFO
+TIMEOUT_DEFAULT = 2**3
 TIMEOUT_LOG_LEVEL = 90
 TIMEOUT_DEFAULT = 2**3
 CSSFILE = os.path.join(os.environ.get('PATH_TO_PROGS', '.'), "oac_pdf.css")
@@ -84,7 +85,7 @@ def run_file_list_with_pp(filelist, ncpu=None, timeout=None, cssfile=CSSFILE, fo
     logprefix=('Use <LOGPREFIX> for log file names.', 'option'),
 )
 def main(list_file, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
-    logprefix = ''.join((logprefix, '-', str(datetime.date.today())))
+    logprefix = ''.join((logprefix, '-', str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))))
     logfile = ''.join((logprefix,'.log'))
     timeout=int(timeout) if timeout else TIMEOUT_DEFAULT
     #jobslog = open('pdf_list_parallel-JOBS.log','a')
