@@ -28,4 +28,4 @@ else
 fi
 
 
-nice -19 python ${PATH_TO_PROGS}/pdf_gen.py --savehtml --force --css=${PATH_TO_PROGS}/oac_pdf.css --outdir=parallel --data_root=${DATA_DIR} --file=$1 2>&1 > run_file.out
+nice -9 python ${PATH_TO_PROGS}/pdf_gen.py --savehtml --force --css=${PATH_TO_PROGS}/oac_pdf.css --outdir=parallel --data_root=${DATA_DIR} --file=$1 2>&1 > run_file.out

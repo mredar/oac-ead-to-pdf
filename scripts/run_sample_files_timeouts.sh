@@ -20,4 +20,4 @@ else
     echo "CLASSPATH: ${CLASSPATH}"
 fi
 
-nice -19 ${PATH_TO_PROGS}/pdf_gen.sh --list=${PATH_TO_PROGS}/timeouts.list --savehtml --force --css=${PATH_TO_PROGS}/oac_pdf.css --timeout=3600 2>&1 > run_sample_files_timeouts.out
+nice -9 ${PATH_TO_PROGS}/pdf_gen.sh --list=${PATH_TO_PROGS}/timeouts.list --savehtml --force --css=${PATH_TO_PROGS}/oac_pdf.css --timeout=3600 2>&1 > run_sample_files_timeouts.out

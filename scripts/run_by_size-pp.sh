@@ -34,7 +34,7 @@ else
     echo "DATA DIR: ${DATA_DIR}"
 fi
 
-nice -19 ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.sh -outdir=parallel -logprefix=${LOG_DIR}/pdf_gen_by_size_parallel -cssfile=${PATH_TO_PROGS}/oac_pdf.css -exclude_file=${SCRIPTS_DIR}/exclude.list ${DATA_DIR} 2>&1 > ${LOG_DIR}/pdf_gen_by_size_parallel.out
+nice -9 ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.sh -outdir=parallel -logprefix=${LOG_DIR}/pdf_gen_by_size_parallel -cssfile=${PATH_TO_PROGS}/oac_pdf.css -exclude_file=${SCRIPTS_DIR}/exclude.list ${DATA_DIR} 2>&1 > ${LOG_DIR}/pdf_gen_by_size_parallel.out
 
 datefix=`date +%Y-%m-%d`
 logsnip=`tail ${LOG_DIR}/pdf_gen_by_size_parallel-${datefix}.log`

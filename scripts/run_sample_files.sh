@@ -20,4 +20,4 @@ else
     echo "CLASSPATH: ${CLASSPATH}"
 fi
 
-nice -19 ${PATH_TO_PROGS}/pdf_gen.sh --dir=${PATH_TO_PROGS}/sample_files/ --savehtml --force --css=${PATH_TO_PROGS}/oac_pdf.css 2>&1 > run_sample_files.out
+nice -9 ${PATH_TO_PROGS}/pdf_gen.sh --dir=${PATH_TO_PROGS}/sample_files/ --savehtml --force --css=${PATH_TO_PROGS}/oac_pdf.css 2>&1 > run_sample_files.out
