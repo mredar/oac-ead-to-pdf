@@ -114,6 +114,12 @@ def report(num_attempt, successlist, errorlist, timeouts, timeout_end_of_run):
     logging.info('TIMEOUTS LEFT TO DO:'+str(timeouts))
     logging.info("\n\n++++++++++++++++++++++++++++++++++++++\n\n")
     logging.info("Completed %d files of %d attempts. %d had errors, while %d timed out with timeout of %d seconds." % ( len(successlist), num_attempt, len(errorlist), len(timeouts), timeout_end_of_run))
+    print("\n\n++++++++++++++++++++++++++++++++++++++\n\n")
+    print('COMPLETED FILES:'+str(successlist))
+    print('ERROR FILES:'+str(errorlist))
+    print('TIMEOUTS LEFT TO DO:'+str(timeouts))
+    print("\n\n++++++++++++++++++++++++++++++++++++++\n\n")
+    print("Completed %d files of %d attempts. %d had errors, while %d timed out with timeout of %d seconds." % ( len(successlist), num_attempt, len(errorlist), len(timeouts), timeout_end_of_run))
 
 if __name__=='__main__':
     import plac; plac.call(main)
