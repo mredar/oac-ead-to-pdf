@@ -11,7 +11,7 @@ FILESIZE_MAX = 2**27 # ~100M
 LOG_BACKUP_COUNT = 10
 LOG_LEVEL = logging.INFO
 TIMEOUT_LOG_LEVEL = 90
-TIMEOUT_SECS_START = 2**5 #32
+TIMEOUT_SECS_START = 2**3
 CSSFILE = os.path.join(os.environ.get('PATH_TO_PROGS', '.'), "oac_pdf.css")
 
 description = '''
@@ -19,7 +19,7 @@ PDF Run by size: Runs the OAC EAD xml files through our PDF Generaotor. Runs
 them by increasing size.
 '''
 
-def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
+def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
     num_attempt = 0
     filelist = []
     successlist = []
@@ -89,10 +89,10 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=600, cssfile=CSS
     exclude_file=('List of files to be excluded (absolute path).', 'option'),
 )
 
-def main(directory_root, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
+def main(directory_root, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
     logprefix = ''.join((logprefix, '-', str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))))
     logfile = ''.join((logprefix,'.log'))
-    timeout=int(timeout)
+    timeout=int(timeout) if timeout else TIMEOUT_SECS_START
     logging.basicConfig(filename=logfile, level=logging.INFO)
     logging.info("\n\n\n++++++++++++++ Process id: %s at %s ++++++++++++++" % (os.getpid(), datetime.datetime.now()))
     # build file lists according to size, how to report progress?

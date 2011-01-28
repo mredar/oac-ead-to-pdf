@@ -8,10 +8,11 @@ import plac
 
 LOG_BACKUP_COUNT = 10
 LOG_LEVEL = logging.INFO
+TIMEOUT_DEFAULT = 2**3
 TIMEOUT_LOG_LEVEL = 90
 CSSFILE = os.path.join(os.environ.get('PATH_TO_PROGS', '.'), "oac_pdf.css")
 
-def pdf_gen_wrap(filename, num, timeout=60, cssfile='/dsc/branches/production/oac-ead-to-pdf/oac_pdf.css', force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
+def pdf_gen_wrap(filename, num, timeout=None, cssfile='/dsc/branches/production/oac-ead-to-pdf/oac_pdf.css', force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
     '''Wrapper for pdf_gen.generator.pdf_gen_file for call from pp'''
     #setup logging for each file
     logfile =logprefix+'-WORKER-'+str(num)+'.log'
@@ -21,7 +22,7 @@ def pdf_gen_wrap(filename, num, timeout=60, cssfile='/dsc/branches/production/oa
     complete, timeouts, errs, skips = generator.pdf_gen_file(filename, timeoutSecs=timeout, cssfile=cssfile, force=force, savehtml=savehtml, outdir_option=outdir, data_root=data_root)
     return complete, timeouts, errs, skips
 
-def run_file_list_with_pp(filelist, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
+def run_file_list_with_pp(filelist, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
     # only input is list file, parse and feed to ppserver
     #better run this in nice mode.
     #job_server = pp.Server(restart=True, loglevel=logging.INFO, logstream=jobslog) 
@@ -82,10 +83,10 @@ def run_file_list_with_pp(filelist, ncpu=None, timeout=600, cssfile=CSSFILE, for
     data_root=('Use when in list or file mode and want to produce data in a parallel directory. Points to root of data tree.  Parallel output will replace this root with the parallel directory root.', 'option'),
     logprefix=('Use <LOGPREFIX> for log file names.', 'option'),
 )
-def main(list_file, ncpu=None, timeout=600, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
+def main(list_file, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, data_root=None, logprefix='run_pdf_gen_parallel'):
     logprefix = ''.join((logprefix, '-', str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))))
     logfile = ''.join((logprefix,'.log'))
-    timeout=int(timeout)
+    timeout=int(timeout) if timeout else TIMEOUT_DEFAULT
     #jobslog = open('pdf_list_parallel-JOBS.log','a')
     logging.basicConfig(filename=logfile, level=logging.INFO)
     logging.info("Process id: %s" % os.getpid())
