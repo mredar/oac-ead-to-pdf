@@ -37,10 +37,10 @@ fi
 
 nice -9 ${PATH_TO_PROGS}/pdf_gen_by_size_parallel.sh -outdir=parallel -logprefix=${LOG_DIR}/pdf_gen_by_size_parallel -cssfile=${PATH_TO_PROGS}/oac.css -exclude_file=${SCRIPTS_DIR}/exclude.list ${DATA_DIR} 2>&1 > ${LOG_DIR}/pdf_gen_by_size_parallel.out
 
+if [ ${PRODUCTION} = "true" ]; then
 #datefix=`date +%Y-%m-%d`
 #logsnip=`tail ${LOG_DIR}/pdf_gen_by_size_parallel-${datefix}.log`
 logsnip=`tail ${LOG_DIR}/pdf_gen_by_size_parallel.out`
-
 mail mark.redar@ucop.edu <<%%
 subject: PDF Job Done
 
@@ -51,3 +51,4 @@ ${logsnip}
 
 
 %%
+fi
