@@ -90,8 +90,12 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 <xsl:if test="$flat!='flat'"><xsl:apply-templates select="c01|c02|c03|c04|c05|c06|c07|c08|c09|c10|c11|c12" mode="ead"/></xsl:if>
 </xsl:template>
 
-<xsl:template match="unitid" mode="ead-dsc">
+<xsl:template match="unitid[not(@label)][not(extref)]" mode="ead-dsc">
 <xsl:value-of select="replace(.,'\s','&#160;')"/>
+</xsl:template>
+
+<xsl:template match="unitid[@label or extref]" mode="ead-dsc">
+<xsl:apply-templates select="." mode="ead"/>
 </xsl:template>
 
 <xsl:template match="unittitle| unititle | unitdate" mode="ead-dsc"><b><xsl:apply-templates mode="ead"/></b><xsl:text> </xsl:text></xsl:template>

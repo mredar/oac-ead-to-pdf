@@ -4,7 +4,7 @@
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!--
-   Copyright (c) 2006, Regents of the University of California
+   Copyright (c) 2011, Regents of the University of California
    All rights reserved.
  
    Redistribution and use in source and binary forms, with or without 
@@ -97,5 +97,16 @@
   <xy width="{$width}" height="{$height}"/>
 
 </xsl:template>
+
+<xsl:function name="res:getExt" xmlns:res="x-hack:res">
+  <!-- get the file extension -->
+  <xsl:param name="href"/>
+  <xsl:value-of select="if (ends-with($href,'.jpg') or ends-with($href,'.jpeg'))
+                        then '.jpg'
+                        else if (ends-with($href,'.gif'))
+                        then '.gif'
+                        else ''"/>
+</xsl:function>
+
  
 </xsl:stylesheet> 
