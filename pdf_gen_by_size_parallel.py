@@ -19,7 +19,7 @@ PDF Run by size: Runs the OAC EAD xml files through our PDF Generaotor. Runs
 them by increasing size.
 '''
 
-def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None):
+def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=None, cssfile=CSSFILE, force=False, savehtml=False, outdir=None, logprefix='run_pdf_gen_parallel', exclude_file=None, parallel_root='/dsc/data/in/oac-ead/prime2002'):
     num_attempt = 0
     filelist = []
     successlist = []
@@ -43,9 +43,9 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=None, cssfile=CS
                     if input_file_path in excludelist:
                         logging.info("EXCLUDING FILE:"+input_file_path)
                         continue
-                    outputdir = OAC_EADtoPDFGenerator.outpath(outdir, directory_root, root)
+                    outputdir = OAC_EADtoPDFGenerator.outpath(outdir, parallel_root, root)
                     pdffile = os.path.join(outputdir, os.path.splitext(f)[0])+".pdf"
-                    if OAC_EADtoPDFGenerator.input_is_newer(input_file_path, pdffile):
+                    if force or OAC_EADtoPDFGenerator.input_is_newer(input_file_path, pdffile):
                         if filesize_last < os.stat(input_file_path).st_size <= filesize_cur:
                             filelist.append(input_file_path)
         num_attempt += len(filelist)
@@ -57,7 +57,7 @@ def pdf_gen_by_size_parallel(directory_root, ncpu=None, timeout=None, cssfile=CS
                                                timeout_cur
                                               )
                     )
-        completed, timeouts, errs, skipped = run_file_list_with_pp(filelist, ncpu=ncpu, timeout=timeout_cur, cssfile=cssfile, force=force, savehtml=savehtml, outdir=outdir, data_root=directory_root, logprefix=logprefix)
+        completed, timeouts, errs, skipped = run_file_list_with_pp(filelist, ncpu=ncpu, timeout=timeout_cur, cssfile=cssfile, force=force, savehtml=savehtml, outdir=outdir, data_root=parallel_root, logprefix=logprefix)
         successlist.extend(completed)
         errorlist.extend(errs)
         logging.info("++++++++++++++ RUNNING TIME: %s" % (datetime.datetime.now()-start_time))
