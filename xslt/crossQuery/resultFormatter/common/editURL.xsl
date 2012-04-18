@@ -76,13 +76,13 @@
       <!-- Change old ampersands to new easy-to-read semicolons -->
       <xsl:variable name="v1" select="replace($v0, '&amp;', ';')"/>
       <!-- Get rid of empty parameters -->
-      <xsl:variable name="v2" select="replace($v0, '[^&amp;=]+=(&amp;|$)', '')"/>
+      <xsl:variable name="v2" select="replace($v1, '[^;=]+=(;|$)', '')"/>
       <!-- Replace ";;" with ";" -->
       <xsl:variable name="v3" select="replace($v2, ';;+', ';')"/>
       <!-- Get rid of leading and trailing ';' -->
       <xsl:variable name="v4" select="replace($v3, '^;|;$', '')"/>
       <!-- All done. -->
-      <xsl:value-of select="replace($v0,'__utm.*$','')"/>
+      <xsl:value-of select="replace($v4,'&amp;__utm.*$','')"/>
    </xsl:function>
    
    <!-- Function to calculate an unused name for the next facet parameter -->
