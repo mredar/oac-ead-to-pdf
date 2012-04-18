@@ -1,0 +1,450 @@
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans.ttf");
+}
+
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans-Oblique.ttf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: DejaSans;
+    src: url("./fonts/DejaVuSans-BoldOblique.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+* {
+    font-family: DejaSans;
+}
+
+html {
+    font-family: DejaSans;
+    font-size: 10px; 
+    font-weight: normal;
+    color: #000000; 
+    background-color: transparent;
+    margin: 0; 
+    padding: 0;
+    line-height: 150%;
+    border: 1px none;
+    display: inline;
+    width: auto;
+    height: auto;
+    white-space: normal;    
+}
+
+img { font-family: helvetica;
+      zoom: 80%;
+}
+
+b, 
+strong { 
+    font-weight: bold; 
+}
+
+i, 
+em { 
+    font-style: italic; 
+}
+
+u {
+    text-decoration: underline;
+}
+
+s,
+strike {
+    text-decoration: line-through;
+}
+
+a {
+    text-decoration: underline;
+    color: #335c64;
+}
+
+ins {
+    color: green;
+    text-decoration: underline;
+}
+del {
+    color: red;
+    text-decoration: line-through;
+}
+
+pre,
+code,
+kbd,
+samp,
+tt {
+    font-family: "Courier New";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight:bold;
+}
+/*    -pdf-outline: true;    
+    -pdf-outline-open: false;
+}
+    */
+
+h1 {
+    /*18px via YUI Fonts CSS foundation*/
+    font-size:138.5%; 
+}
+/*
+    -pdf-outline: true;
+    -pdf-outline-open: false;
+    -pdf-outline-level: 0;
+}
+    */
+
+h2 {
+    /*16px via YUI Fonts CSS foundation*/
+    font-size:123.1%;
+    -pdf-outline-level: 1;
+}
+
+h3 {
+    /*14px via YUI Fonts CSS foundation*/
+    font-size:108%;
+    -pdf-outline-level: 2;
+}
+
+h4 {
+    -pdf-outline-level: 3;
+}
+
+h5 {
+    -pdf-outline-level: 4;
+}
+
+h6 {
+    -pdf-outline-level: 5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+/*p,*/
+pre,
+hr {
+    margin:1em 0;
+}
+
+address,
+blockquote,
+body,
+center,
+dl,
+dir,
+div,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+isindex,
+menu,
+noframes,
+noscript,
+ol,
+p,
+pre,
+table,
+th,
+tr,
+td,
+ul,
+li,
+dd,
+dt,
+pdftoc {
+    display: block;
+}
+
+table {
+     -pdf-keep-in-frame-mode: overflow;
+}
+
+tr,
+th,
+td {
+
+    vertical-align: middle;
+    width: auto;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
+}
+
+center {
+    text-align: center;
+}
+
+big {
+    font-size: 125%;
+}
+
+small {
+    font-size: 75%;
+}
+
+
+ul {
+    margin-left: 1.5em;
+    list-style-type: disc;
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+ul ul ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 1.5em;
+}
+
+pre {
+    white-space: pre;
+}
+
+blockquote {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+noscript {
+    display: none;
+}  
+
+    
+/* OAC STYLES */
+/*
+p {
+	margin: 5px 0 5px 0;
+	}
+
+ead-p {
+    margin: 5px 0 5px 0;
+}
+    */
+
+/* the following 2 don't seem to do anything, trying to space eye-icon away from
+ * link
+ */
+
+/* none of this worked
+.collection .online-items {
+    padding-left: 5px;
+}
+
+.online-items {
+    padding-left: 5px;
+}
+    */
+
+.online-items a {
+    color: #335c64;
+}
+
+/* pisa blows up on this, it's inside a <td> and seems to cause problems.
+div.c0x-notes {
+    padding-bottom: 10px;
+}
+    */
+
+/* not effective
+div.c0x-notes {
+    margin-bottom: 10px;
+}
+    */
+
+.c0x-notes {
+    padding-left: 3pc;
+}
+.c0x-notes b { color: #555555; }
+
+/*this works*/
+.collection-items img {
+    zoom: 100%;
+}
+
+.collection-items {
+/*	width: 140px;
+	height: 20px;
+	text-indent: .40em;
+	margin-top: .50em;	
+	margin-left: 1em;
+	margin-bottom: .50em;
+    font-weight: bold;
+    */
+    /*BORDERS DON"T seem TO WORK*/
+	/*border:1px solid #b24415;*/
+    border-left-width: 2px;
+    border-left-color: #b24415; 
+    border-left-style: solid;
+    border-right-width: 2px;
+    border-right-color: #b24415; 
+    border-right-style: solid;
+    border-top-width: 2px;
+    border-top-color: #b24415; 
+    border-top-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #b24415; 
+    border-bottom-style: solid;
+
+    color: #335C64;
+    /*background-color:red;*/
+}
+
+
+.collection-contents div.ead-p,
+.collection-contents p {
+    display: block;
+	margin-bottom: 3px;
+	}
+
+.pdf-header div.ead-p
+   {
+    display: inline;
+	margin-bottom: 1px;
+	}
+
+    /*(
+.ead-p img {
+    display: block;
+    padding-bottom: 10px;
+}
+    */
+
+/* EAD STYLES */
+
+.collection .hitsection { background: yellow; }
+
+.collection .toc-titles .subhit { color:#C2492C;  }
+.collection .collection-contents-container .subhit { color:#C2492C;  }
+
+/*.c0x { border-top: thin solid #CCCCCC; text-align: left; text-indent: -1em; }*/
+
+/* not work
+.cx,
+."cx hr" {
+    padding-bottom: 10px;
+}
+    */
+
+div.cx { margin-top: 10px; margin-bottom: 10px; font-size: 90%; overflow: hidden; width: 100%;} 
+
+.cx a:link, .cx a:hover, .cx a:visited, .cx a:active {
+	color: #b85025;
+	font-size: 90%;
+	margin-left: 3px;
+	}
+
+.cx a:link, .cx a:visited {
+	text-decoration: underline;
+	}
+
+.cx a:hover, .cx a:active {
+	text-decoration: none;
+	}
+
+.collection-contents .hr {
+	border-top: 1px #b85025 solid;
+	padding-top: 10px;
+	width: 590px;
+	}
+
+.cx div.c { float: left; width: 100px; /*clear: both;*/}
+
+/*
+.cx p { margin-top: 0px; margin-bottom: 0px;}
+*/
+
+/* NOT USED IN PDF & FULL HTML VIEW
+.collection .row2-right-top .navCategory,
+.collection .row2-right-top .c01,
+.collection .row2-right-top .c02,
+.collection .row2-right-top .c03,
+.collection .row2-right-top .c04,
+.collection .row2-right-top .c05,
+.collection .row2-right-top .c06,
+.collection .row2-right-top .c07,
+.collection .row2-right-top .c08,
+.collection .row2-right-top .c09,
+.collection .row2-right-top .c10,
+.collection .row2-right-top .c11,
+.collection .row2-right-top .c12 {
+	margin-bottom: 2px;
+	border: 1px green dashed;
+	}
+        */
+
+
+/*
+.c01 b { color: #b85025;}
+*/
+
+.collection-contents .c01 { margin-left: 0pc; float: left; }
+.collection-contents .c02 { margin-left: 1pc; float: left; }
+.collection-contents .c03 { margin-left: 2pc; float: left; }
+.collection-contents .c04 { margin-left: 3pc; float: left; }
+.collection-contents .c05 { margin-left: 4pc; float: left; }
+.collection-contents .c06 { margin-left: 5pc; float: left; }
+.collection-contents .c07 { margin-left: 6pc; float: left; }
+.collection-contents .c08 { margin-left: 7pc; float: left; }
+.collection-contents .c09 { margin-left: 8pc; float: left; }
+.collection-contents .c10 { margin-left: 9pc; float: left; }
+.collection-contents .c11 { margin-left: 10pc; float: left; }
+.collection-contents .c12 { margin-left: 11pc; float: left; }
+
+.toc-titles .c01 { margin-left: 15px; }
+.toc-titles .c02 { margin-left: 30px; }
+.toc-titles .navAction { font-size: 95%; }
+ol.ead-arabic li { list-style-type:decimal; }
+ol.ead-upperalpha li { list-style-type:upper-alpha; }
+ol.ead-loweralpha li { list-style-type:lower-alpha; }
+ol.ead-upperroman li { list-style-type:upper-roman; }
+ol.ead-lowerroman li { list-style-type:lower-roman; }
+.ead-list li { list-style-type:disc; }
+.ead-list-unmarked li { list-style-type:none; }
+ol, ul, dl { padding-left: 2pc; }
+/* li { list-style-type: disc;} */
+.ead-bold { font-weight:bold; }
+.ead-bolditalic { font-style:italic; font-weight:bold; }
+.ead-doublequote:before, .ead-doublequote:after { content:'"'; }
+.ead-boldsmcaps { font-variant:small-caps; font-weight:bold; }
+.ead-boldunderline { font-weight:bold; text-decoration:underline; }
+.ead-italic { font-style:italic; }
+.ead-nonproport { font-family:courier; }
+.ead-smcaps { font-variant:small-caps; }
+.ead-sub { vertical-align:sub; }
+.ead-super { vertical-align:super; }
+.ead-underline { text-decoration:underline; } 
+
