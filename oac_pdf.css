@@ -22,12 +22,17 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: Cyberbit;
+    src: url("./fonts/Cyberbit.ttf");
+}
+
 * {
-    font-family: DejaSans;
+    font-family: Cyberbit;
 }
 
 html {
-    font-family: DejaSans;
+    font-family: Cyberbit;
     font-size: 10px; 
     font-weight: normal;
     color: #000000; 

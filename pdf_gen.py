@@ -539,9 +539,9 @@ class PostProcessor_OACEAD(object):
                 logger.debug(root_element)
                 # try Dublin Core Elements
                 contributor = elementlist_tostring(root_element.findall('./contributor'))
-                creator = elementlist_tostring(root_element.findall('//creator'))
+                creator = elementlist_tostring(root_element.findall('.//creator'))
                 c =root_element.find('./archdesc/did/origination')
-                if c:
+                if c is not None:
                     creator = elementlist_tostring(root_element.find('./archdesc/did/origination').getchildren())
                 date = elementlist_tostring(root_element.findall('./date'))
                 description = elementlist_tostring(root_element.findall('./description'))
@@ -552,13 +552,13 @@ class PostProcessor_OACEAD(object):
                 source = elementlist_tostring(root_element.findall('./source'))
                 subject = elementlist_tostring(root_element.findall('./archdesc/subject'))
                 if subject=='':
-                    subject = elementlist_tostring(root_element.findall('//subject'))
-                title = elementlist_tostring(root_element.findall('//title'))
+                    subject = elementlist_tostring(root_element.findall('.//subject'))
+                title = elementlist_tostring(root_element.findall('.//title'))
                 type = elementlist_tostring(root_element.findall('./type'))
     
                 title = elementlist_tostring(root_element.findall('./titleproper'))
                 if title == '':
-                    title = root_element.find('//unittitle').text 
+                    title = root_element.find('.//unittitle').text 
     
                 author = creator
                 

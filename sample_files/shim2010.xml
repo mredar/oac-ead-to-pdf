@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<ead>
+<eadheader repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" scriptencoding="iso15924" audience="internal" langencoding="iso639-2b" findaidstatus="edited-full-draft">
+<eadid xmlns:cdlpath="http://www.cdlib.org/path/" countrycode="US" mainagencycode="CLU-SC" identifier="ark:/13030/ft3489n7gm" cdlpath:parent="ark:/13030/tf129008pn" cdlpath:grandparent="ark:/13030/tf8z09p95s">PUBLIC "-//University of California, Los Angeles::Library::Dept. of Special Collections//TEXT(US::CLU-SC::2010::Shinkichir&#x14D; Shima Papers)//EN" "shim2010.xml"</eadid>
+<filedesc>
+<titlestmt>
+ <titleproper>Finding Aid for the Shinkichir&#x14D; Shima papers, 1894-1965</titleproper>
+<titleproper type="filing">Shima (Shinkichir&#x14D;) papers</titleproper>
+ <subtitle>Japanese American Research Project (JARP) Collection</subtitle>
+ <author>Processed by Yoko Okunishi in the Center for Primary Research and Training (CFPRT), with assistance from Megan Hahn Fraser, 2010. Preliminary processing by Manuscripts Division staff; machine-readable finding aid created by Caroline Cub&#xE9;</author>
+ </titlestmt>
+ <publicationstmt>
+ <publisher>UCLA Library, Department of Special Collections</publisher>
+ <address>
+ <addressline>Manuscripts Division</addressline>
+ <addressline>Room A1713, Charles E. Young Research Library</addressline>
+ <addressline>Box 951575</addressline>
+ <addressline>Los Angeles, CA 90095-1575</addressline>
+ <addressline>Email: spec-coll@library.ucla.edu</addressline>
+ <addressline>URL: http://www.library.ucla.edu/libraries/special/scweb/</addressline>
+ </address>
+ <date calendar="gregorian" era="ce">&#xA9; 2002</date>
+ <p>The Regents of the University of California. All rights reserved.</p>
+ </publicationstmt>
+ </filedesc>
+<profiledesc>
+ <creation>Frontmatter gathered from MARC record. Supplementary encoding and revision supplied by Caroline Cub&#xE9; and Josh Fiala.</creation>
+ <langusage>Description is in <language>English.</language></langusage>
+ </profiledesc><revisiondesc>
+ <change>
+ <date calendar="gregorian" era="ce" normal="20040323">March 23, 2004</date>
+ <item>PUBLIC "-//University of California, Los
+Angeles::Library::Dept. of Special Collections//TEXT
+(US::CLU::2010::Shinkichir&#x14D; Shima papers)//EN" "shim2010.sgm" converted from EAD 1.0 to 2002 by v1to02.cdl.xsl (2004-09-16).</item>
+ </change>
+ </revisiondesc></eadheader>
+ <frontmatter>
+ <titlepage>
+ <titleproper>Finding Aid for the Shinkichir&#x14D; Shima papers, 1894-1965</titleproper>
+ <subtitle>Japanese American Research Project (JARP) Collection</subtitle>
+ <num>Collection number: 2010</num>
+ <publisher>UCLA Library, Department of Special Collections
+<lb/>Manuscripts Division
+<lb/><extptr linktype="simple" show="embed" actuate="onload"/><lb/>Los Angeles, CA</publisher>
+ <list type="simple">
+ <head>Contact Information</head>
+ <item>Manuscripts Division</item>
+ <item>UCLA Library, Department of Special Collections</item>
+ <item>Room A1713, Charles E. Young Research Library</item>
+ <item>Box 951575</item>
+ <item>Los Angeles, CA 90095-1575</item>
+ <item>Telephone: 310/825-4988 (10:00 a.m. - 4:45 p.m., Pacific 
+Time)</item>
+ <item>Email: spec-coll@library.ucla.edu</item>
+ <item>URL: http://www.library.ucla.edu/libraries/special/scweb/</item>
+ </list>
+ <p>&#xA9; 2002 The Regents of the University of California. All rights reserved.</p>
+ </titlepage>
+ </frontmatter>
+ <archdesc level="collection" id="archdesc-1.3">
+ <did id="did-1.8.1">
+ <head>Descriptive Summary</head>
+ <unittitle label="Title">Shinkichir&#x14D; Shima papers, </unittitle>
+<unitdate calendar="gregorian" era="ce" type="inclusive">1894-1965</unitdate>
+ <unitid label="Collection number" countrycode="US" repositorycode="CLU-SC">2010</unitid>
+ <origination label="Creator">
+ <persname source="aacr2">Shima, Shinkichir&#x14D; (&#x5CF6;&#x8FB0;&#x5409;&#x6717;)</persname>
+ </origination>
+ <physdesc label="Extent">
+ <extent>3 boxes (1.5 linear ft.)</extent>
+ </physdesc>
+ <repository label="Repository">
+ <corpname>University of California, Los Angeles. Library. <subarea>Department of Special Collections.</subarea></corpname>
+ <address>
+ <addressline>Los Angeles, California 90095-1575</addressline>
+ </address>
+ </repository>
+ <abstract label="Abstract">Shinkichir&#x14D; Shima was born in 1877 in Fukuoka Prefecture, Japan, and arrived at San Francisco in 1894. He was a devoted Christian and poet, and worked as a cactus nurseryman in Southern California. During World War II, he was incarcerated in the Manzanar Relocation Center. The collection consists of a diary, correspondence, religious poems and various religious writings.   </abstract>
+ <physloc label="Physical location">Stored off-site at SRLF. Advance notice is required for access to the collection. Please contact the UCLA Library, Department of Special Collections Reference Desk for paging information.</physloc>
+ <langmaterial label="Language">
+ <language langcode="eng">English</language> and <language langcode="jpn">Japanese.</language>
+ </langmaterial>
+ </did>
+ <descgrp type="admininfo" id="descgrp-1.8.2">
+ <head>Administrative Information</head>
+ <userestrict>
+ <head>Restrictions on Use and Reproduction</head>
+ <p>Property rights to the physical object belong to the UCLA Library, Department of Special Collections. Literary rights, including copyright, are retained by the creators and their heirs. It is the responsibility of the researcher to determine who holds the copyright and pursue the
+copyright owner or his or her heir for permission to publish where The UC Regents do not hold the copyright.</p>
+ </userestrict>
+ <accessrestrict>
+ <head>Restrictions on Access</head>
+<p>COLLECTION STORED OFF-SITE AT SRLF: Open for research. Advance notice required for access. Contact the UCLA Library, Department of Special Collections Reference Desk for paging information.</p>
+ </accessrestrict>
+<processinfo>
+<head>Processing Note</head>
+<p>Processed by Yoko Okunishi in the Center for Primary Research and Training (CFPRT), with assistance from Megan Hahn Fraser, 2010. Preliminary processing by Manuscripts Division staff.</p>
+</processinfo>
+ <prefercite>
+ <head>Preferred Citation</head>
+ <p>[Identification of item], Shinkichir&#x14D; Shima papers, Japanese American Research Project Collection (Collection 2010). Department of Special Collections, Charles E. Young Research Library, University of California, Los Angeles.</p>
+ </prefercite>
+ </descgrp>
+ <bioghist id="bioghist-1.8.3">
+ <head>Biography</head>
+ <p>Shinkichir&#x14D; Shima was born in 1877 in Fukuoka Prefecture, Japan, and arrived at San Francisco in 1894 on board the <title>Empress of China</title>. He was baptized at a Methodist church in 1898 and became a devoted Christian. During World War II, he was incarcerated in the Santa Ana Assembly Center and transferred to the Manzanar Relocation Center on July 31, 1942. In the Manzanar Relocation Center, he joined the Guayule project, propagating rubber plans. He was also a poet and worked as a cactus nurseryman in Southern California, exporting cacti to Japan.</p>
+ </bioghist>
+ <scopecontent id="scopecontent-1.8.4">
+ <head>Scope and Content</head>
+<p>The collection consists of a diary, correspondence, and various writings related to the life of Shinkichir&#x14D; Shima. The diary, in Japanese, begins when he left Yokohama for the United States on board the <title>Empress of China</title> (October 9, 1894) with subsequent entries made on memorable occasions. It includes descriptions of voyages when Shima traveled between the U.S. and Japan from 1898 to 1918, and documents the matters of his cactus export business to Japan. It also covers the time period when Shima was incarcerated in the Santa Fe Assembly Center and the Manzanar Relocation Center (1942-1946), depicting life in the camps in a Japanese poetic form.</p>
+  
+<p>Three notebooks contain his drafts of letters, in English and Japanese, some of which were written in the Manzanar Relocation Center while he was incarcerated. These include descriptions of camp life conditions as well as his participation in the Guayule project to propagate rubber plants at the Manzanar Relocation Center, and his family situations in Japan. The drafts also include English letters asking his friends to manage his bank accounts and Japanese letters discussing business plans for trading between US and Japan.  </p>
+<p>Other writings include manuscripts for religious poems, &#x970A;&#x5E33; Reich&#x14D;, Daily blessing, hymns compiled in a Japanese poetic form in the Manzanar Relocation Center, excerpts from the Bible and verses, and other religious writings.   </p>
+ </scopecontent>
+ <arrangement id="arrangement-1.8.5">
+ <head>Organization and Arrangement</head>
+ <p>Materials are arranged as follows: 
+<list type="ordered">
+<item>Personal papers (Box 136)</item>
+<item>Hymns in a Japanese poetic form (Box 136)</item>
+<item>&#x970A;&#x5E33; Reich&#x14D; (Box 136)</item>
+<item>Manuscripts for "Daily blessing" (Box 137)</item>
+<item>Religious poems and various religious writings (Boxes 137-138)</item>
+</list></p>
+ </arrangement>
+ <controlaccess id="controlaccess-1.8.6">
+ <head>Indexing Terms</head>
+ <p>The following terms have been used to index the description of this collection in the library's online public access catalog.</p>
+ <persname source="aacr2" encodinganalog="600" role="subject">Shima, Shinkichir&#x14D;, 1877- --Archives.</persname>
+ <corpname source="lcnaf" encodinganalog="610" role="subject">Japanese American Research Project (University of California, Los Angeles).</corpname>
+ <occupation source="lcsh" encodinganalog="650">Authors, Japanese--Archival resources.</occupation>
+ <subject source="lcsh" encodinganalog="650">Japanese Americans--California, Southern--Archival resources.</subject>
+ <subject source="lcsh" encodinganalog="650">Japanese Americans--Evacuation and relocation, 1942-1945.</subject>
+ </controlaccess>
+<relatedmaterial id="relatedmaterial-1.8.8">
+ <head>Related Material</head>
+<p>
+<extref href="http://www.oac.cdlib.org/findaid/ark:/13030/tf6d5nb3z6" actuate="onrequest" show="new">Japanese American Research Project Collection of Material about Japanese in the United States (Collection 2010)
+</extref>. Available at the Department of Special Collections, UCLA. </p>
+ </relatedmaterial>
+ <dsc type="in-depth" id="dsc-1.8.7" score="2" C-ORDER="1" MAX-C-ORDER="65">
+ <head>Container List</head>
+ <p>Shinkichir&#x14D; Shima papers are found in Boxes 136-138 of the 
+<extref href="http://www.oac.cdlib.org/findaid/ark:/13030/tf6d5nb3z6" actuate="onrequest" show="new">Japanese American Research Project Collection of Material about Japanese in the United States (Collection 2010)</extref>.</p>
+<c01 level="series" id="c01-1.3.8.3" score="2" C-ORDER="3"><did><unittitle>Shima papers </unittitle>
+<unitdate> 1894-1965</unitdate>
+<physdesc>1.5 linear ft. </physdesc>
+</did>
+<scopecontent>
+<p>Shima Shinkichir&#x14D; (1877- ). Cactus nurseryman, Southern California. A native of Fukuoka Prefecture who arrived in America in 1894. Poet and devout Christian. </p></scopecontent>
+<c02 level="file" id="c02-1.3.8.3.3" score="2" C-ORDER="5"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Biographical data</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>Eight pieces of scratch paper containing brief biographical information on
+Shima.  Memorable occasions from 1877 through 1933 were documented chronologically.  In
+English and Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.4" score="2" C-ORDER="7"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Diary</unittitle>
+<unitdate> :  1894-circa 1950</unitdate>
+</did>
+<scopecontent><p>One unbound notebook of diary beginning on Oct. 9, 1894 when Shima left
+Yokohama, Japan, on board the Empress of China for the United States. Subsequent entries were
+made only on memorable occasions.  In Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.5" score="2" C-ORDER="9"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Diary</unittitle>
+<unitdate> :  1949 December 22-1950 February 7</unitdate>
+</did>
+<scopecontent><p>One notebook of diary.  Poems are also included. In Japanese.
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.6" score="2" C-ORDER="11"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Drafts of letters</unittitle>
+<unitdate> : 1942 August 6-circa 1946, May, 1959</unitdate>
+</did>
+<scopecontent><p>Three notebooks containing drafts of letters written by Shima: Two notebooks
+were written in the Manzanar Relocation Center from August 6, 1942 to ca. May 1946; and one
+notebook contains drafts of letters written in ca. 1959, poems, and some account notes.  In
+English and Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.7" score="2" C-ORDER="13"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Correspondence</unittitle>
+<unitdate> :  circa 1954-1965</unitdate>
+</did>
+<scopecontent><p>Incoming correspondence from Oral Roberts, Oral Roberts Evangelistic
+Association, Tulsa, Oklahoma, and others.  Materials also include two letters from Japanese
+Research Institute of Rare Plants and Animals regarding Cactus business.  In English and
+Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.8" score="2" C-ORDER="15"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Immigration documents</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>Application for a certificate of arrival and preliminary form for a declaration of
+intention. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.9" score="2" C-ORDER="17"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Naturalization examination</unittitle>
+<unitdate> : after 1950</unitdate>
+</did>
+<scopecontent><p>One booklet and two pieces of study notes for the naturalization examination.
+In English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.10" score="2" C-ORDER="19"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Address book</unittitle>
+<unitdate> :  1951-1955, 1960-1963</unitdate>
+</did>
+<scopecontent><p>One address book for Christmas cards and gifts. In Japanese.
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.11" score="2" C-ORDER="21"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">9 </container>
+<unittitle>Financial documents</unittitle>
+<unitdate> :  1958 November 30, 1959 August 29</unitdate>
+</did>
+<scopecontent><p>Two pieces of financial documents. In English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.12" score="2" C-ORDER="23"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">10 </container>
+<unittitle>&#x8C4A;&#x524D;&#x4EBA;&#x540C;&#x5FD7;&#x6703;&#x5275;&#x7ACB;&#x8DA3;&#x610F;&#x66F8; Buzenjin D&#x14D;shikai setsuritsu shuisho</unittitle>
+<unitdate> :  1934 December</unitdate>
+</did>
+<scopecontent><p>A leaflet containing objectives for
+&#x8C4A;&#x524D;&#x4EBA;&#x540C;&#x5FD7;&#x6703; Buzenjin D&#x14D;shikai, an
+association for people from the Buzen region, Japan. In Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.13" score="2" C-ORDER="25"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">11 </container>
+<unittitle>&#x5357;&#x52A0;&#x798F;&#x5CA1;&#x770C;&#x4EBA;&#x4F1A;&#xB7;&#x5A66;&#x4EBA;&#x4F1A; Nanka Fukuoka Kenjinkai and Fujinkai</unittitle>
+<unitdate> :  ca.1957 October-1961 March</unitdate>
+</did>
+<scopecontent><p>Leaflets regarding
+&#x5357;&#x52A0;&#x798F;&#x5CA1;&#x770C;&#x4EBA;&#x4F1A; Nanka Fukuoka Kenjinkai
+[Association for People from Fukuoka Prefecture] and
+&#x5357;&#x52A0;&#x798F;&#x5CA1;&#x5A66;&#x4EBA;&#x4F1A; Nanka Fukuoka Fujinkai
+[Women's Association for People from Fukuoka Prefecture] </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.14" score="2" C-ORDER="27"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">12 </container>
+<unittitle>&#x4FE1;&#x7528;&#x8CAF;&#x91D1;&#x7D44;&#x5408;&#x4EBA;&#x4E8B;&#x76F8;&#x8AC7;&#x90E8;&#x5275;&#x7ACB;&#x306E;&#x8DA3;&#x610F; Shin'y&#x14D; Chochiku
+ Kumiai Jinji S&#x14D;danbu s&#x14D;ritsu no shui</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>One piece of scratch paper containing objectives for establishment of an office
+in a trust bank which assists their church members in making savings.  Written by Shima and
+Takai Ikuo. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.15" score="2" C-ORDER="29"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">13 </container>
+<unittitle>Religious leaflet</unittitle>
+<unitdate> :  1948</unitdate>
+</did>
+<scopecontent><p>A leaflet including religious poems circulated by Shima.  In Japanese.
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.16" score="2" C-ORDER="31"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">14 </container>
+<unittitle>Hymns</unittitle>
+<unitdate> :  1943 January 1, and undated</unitdate>
+</did>
+<scopecontent><p>Two notebooks of hymns in a Japanese poetic form compiled by Shima; one
+was compiled in the Manzanar Relocation Camp; and the date of the other notebook is unknown.
+In Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.17" score="2" C-ORDER="33"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">15 </container>
+<unittitle>Manuscripts for &#x970A;&#x5E33; Reich&#x14D;</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>Three notebooks including manuscripts for &#x970A;&#x5E33;
+Reich&#x14D;, a collection of Shima's poems.  In Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.18" score="2" C-ORDER="35"><did>
+<container type="box" label="Box">136</container>
+<container type="folder" label="Folder">16 </container>
+<unittitle>&#x970A;&#x5E33; Reich&#x14D;</unittitle>
+<unitdate> :  1958 November</unitdate>
+</did>
+<scopecontent><p>One privately-printed book including a collection of Shima's poems; and an
+estimate for its publication.  In Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.19" score="2" C-ORDER="37"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Manuscripts for "Daily blessing"</unittitle>
+<unitdate> :  1962 January 1-1964 December 31</unitdate>
+</did>
+<scopecontent><p>Three notebooks and three pieces of paper containing manuscripts for "Daily
+blessing" written from January 1, 1962 through December 31, 1964. In English and Japanese.
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.20" score="2" C-ORDER="39"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Manuscripts for "Daily blessing"</unittitle>
+<unitdate> : 1965 January 1-December 25</unitdate>
+</did>
+<scopecontent><p>Manuscripts for "Daily blessing" written from January 1 through December 25,
+1965.  In English and Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.21" score="2" C-ORDER="41"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Manuscripts for "Daily blessing"</unittitle>
+<unitdate> :  probably 1966 January 1-30, March 1-April 28</unitdate>
+</did>
+<scopecontent><p>Manuscripts for "Daily blessing" written probably in 1966, January 1-30, and
+March 1-April 28. In English and Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.22" score="2" C-ORDER="43"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Religious writings (1 of 2)</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>Four notebooks containing collections of various religious writings. In
+Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.23" score="2" C-ORDER="45"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Religious writings (2 of 2)</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>Five notebooks containing collections of various religious writings. In
+Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.24" score="2" C-ORDER="47"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Religious poems (1 of 3)</unittitle>
+<unitdate> :  1942-circa 1957, and undated</unitdate>
+</did>
+<scopecontent><p>Twenty seven pieces of scratch paper containing manuscripts of religious
+poems composed by Shima. In Japanese and English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.25" score="2" C-ORDER="49"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Religious poems (2 of 3)</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>Four notebooks containing manuscripts of religious poems composed by
+Shima. In Japanese and English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.26" score="2" C-ORDER="51"><did>
+<container type="box" label="Box">137</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Religious poems (3 of 3)</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>Three notebooks containing manuscripts of religious poems composed by
+Shima. In Japanese and English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.27" score="2" C-ORDER="53"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Religious poems with reading notes (1 of 2)</unittitle>
+<unitdate> :  1901-1910</unitdate>
+</did>
+<scopecontent><p>One notebook containing reading notes and religious poems composed by
+Shima. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.28" score="2" C-ORDER="55"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Religious poems with reading notes (2 of 3)</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>Religious poems composed by Shima.  Includes reading notes on the
+Japanese translation of "The manhood of the master" written by Harry Emerson Fosdick and
+"&#x4FEE;&#x990A;&#x306E;&#x53CB; Sh&#x16B;y&#x14D; no tomo" by
+&#x5409;&#x6751;&#x672B;&#x5409; Yoshimura Suekichi.  In Japanese. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.29" score="2" C-ORDER="57"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Religious poems with reading notes (3 of 3)</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>Religious poems composed by Shima.  Includes reading notes for
+"&#x611B;&#x306E;&#x66A6; Ai no koyomi," the Japanese translation of Leo Tolstoy's work, and
+works of &#x8CC0;&#x5DDD;&#x8C4A;&#x5F66; Kagawa Toyohiko.  Primarily in Japanese with
+some in English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.30" score="2" C-ORDER="59"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Religious poems with religious writings (1 of 3)</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>Collections of various manuscripts for religious poems with verses in the Bible
+and other religious writings. Primarily in Japanese, with texts in English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.31" score="2" C-ORDER="61"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Religious poems with religious writings (2 of 3)</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>Collections of various manuscripts for religious poems with verses in the Bible
+and other religious writings. Primarily in Japanese, with texts in English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.32" score="2" C-ORDER="63"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Religious poems with religious writings (3 of 3)</unittitle>
+<unitdate> : undated</unitdate>
+</did>
+<scopecontent><p>Collections of various manuscripts for religious poems with verses in the Bible
+and other religious writings. Primarily in Japanese, with texts in English. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.3.8.3.33" score="2" C-ORDER="65"><did>
+<container type="box" label="Box">138</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Document on loyalty</unittitle>
+<unitdate> :  undated</unitdate>
+</did>
+<scopecontent><p>One item documenting "&#x5FE0; ch&#x16B;" [loyalty] in Japanese.
+</p></scopecontent>
+</c02>
+</c01>
+ </dsc>
+ </archdesc>
+</ead>
