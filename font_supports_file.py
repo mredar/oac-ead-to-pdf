@@ -125,7 +125,7 @@ def test_against_font_coverage(unicode_str, fontname, fontcodes):
     for c in unicode_str:
         if ord(c) not in font_range:
             passes = False
-            print "Incompatible char for ", fontname, c, ord(c) 
+            print "Incompatible char for ", fontname, c.encode('utf-8'), ord(c) 
             break
     return passes
 
