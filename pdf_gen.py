@@ -23,6 +23,9 @@ import re
 import xml.etree.ElementTree as ET
 import ho.pisa as pisa
 
+from font_supports_file import test_file_against_font_coverage
+from font_supports_file import FONTS
+
 def elementlist_tostring(element_list):
     retStr = ''
     for elem in element_list:
@@ -398,6 +401,13 @@ class OAC_EADtoPDFGenerator(object):
                     msg = ''
                     status = 'WORKING'
                     #Check for deja vu font compatibility
+
+                    print "FONTS", FONTS
+                    dejavu_compat = test_file_against_font_coverage(fname, FONTS['dejavu'])
+                    if not dejavu_compat:
+                        print "Using unifont for {0}.".format(fname)
+                        cssfile = u''.join((os.path.splitext(cssfile)[0],
+                            "-.unifont", os.path.splitext(cssfile)[1]))
                     try:
                         html, result_post = convert_func(fname,
                                      outputdir,
