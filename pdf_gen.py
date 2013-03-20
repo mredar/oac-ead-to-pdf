@@ -103,12 +103,10 @@ class PDFGenerator(object):
             self.inputTransform = inputTransform
         css_str = None
         if cssfile and os.path.isfile(cssfile):
-            print "READING CSSFILE:", cssfile
             css = file(cssfile,'r')
             try:
                 if css:
                     css_str = css.read()
-                    print "GOT CSS", css_str[:50]
             finally:
                 css.close()
         self.css = css_str
@@ -139,7 +137,6 @@ class PDFGenerator(object):
         pisaHTMLString = htmlstring.replace('<br></br>', '<br/>')
         #logging.error( 'pisaHTMLString is %s' % type(pisaHTMLString))
         # wrap string in file like StringIO
-        print "USING csstring:{0}".format(cssstring[:75])
         pdfcontext = pisa.pisaDocument(cStringIO.StringIO(pisaHTMLString),
                              dest=pdffile,
                              debug=debug,
@@ -317,7 +314,7 @@ class OAC_EADtoPDFGenerator(object):
         '''Run saxon on xml with oac4_to_pdf.xslt to produce html suitable for 
         the pisa html to pdf library.
         '''
-        print "xml_to_pdf input:", filepath_in, outputdir, cssfile, nohtml, savehtml, debug
+        #print "xml_to_pdf input:", filepath_in, outputdir, cssfile, nohtml, savehtml, debug
         dir, filename = os.path.split(filepath_in)
         fname, ext = os.path.splitext(filename)
         #filepath_in = os.path.join(dirname, name, '.xml')
