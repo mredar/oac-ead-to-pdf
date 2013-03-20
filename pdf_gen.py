@@ -24,7 +24,6 @@ import xml.etree.ElementTree as ET
 import ho.pisa as pisa
 
 from font_supports_file import test_file_against_font_coverage
-from font_supports_file import FONTS
 
 def elementlist_tostring(element_list):
     retStr = ''
@@ -346,7 +345,7 @@ class OAC_EADtoPDFGenerator(object):
                      force=False, nohtml = False, savehtml = False, debug=False,
                     htmlonly=False):
         self.starttime = datetime.datetime.now()
-        logging.getLogger('OAC').info('Running in file mode for file:%s' % fname)
+        logging.getLogger('OAC').info('Running in file mode for file:%s cssfile:%s' % (fname, cssfile))
         if outdir_option is not None:
         	if (outdir_option.lower().find('parallel') != -1) and not data_root:
                         logging.error("To use parallel output dir in file mode, you must specify the data_root (--data_root=)")
@@ -376,7 +375,9 @@ class OAC_EADtoPDFGenerator(object):
             logging.warn("RUNNING WITH NO TIMEOUT")
             convert_func = self.xml_to_pdf
     
+        cssfile_orig = cssfile
         for fname in flist:
+            cssfile = cssfile_orig
             if OAC_EADtoPDFGenerator.isNot_DC_or_METS_XML(fname):
                 #If pdf exists and is newer than xml, do nothing?
                 # may want to make an opt for this behavior
@@ -402,12 +403,11 @@ class OAC_EADtoPDFGenerator(object):
                     status = 'WORKING'
                     #Check for deja vu font compatibility
 
-                    print "FONTS", FONTS
-                    dejavu_compat = test_file_against_font_coverage(fname, FONTS['dejavu'])
+                    dejavu_compat = test_file_against_font_coverage(fname, 'dejavu')
                     if not dejavu_compat:
                         print "Using unifont for {0}.".format(fname)
                         cssfile = u''.join((os.path.splitext(cssfile)[0],
-                            "-.unifont", os.path.splitext(cssfile)[1]))
+                            "-unifont", os.path.splitext(cssfile)[1]))
                     try:
                         html, result_post = convert_func(fname,
                                      outputdir,

@@ -100,21 +100,21 @@ def unescape_xml(s):
         es = u""
     return es.join(char_list)
 
-def test_file_against_font_coverage(filepath, font):
+def test_file_against_font_coverage(filepath, fontname):
     unicode_str = None
     with codecs.open(filepath, 'r', encoding='utf-8') as infile:
         unicode_str = infile.read()
-    return  test_against_font_coverage(unicode_str, font)
+    unicode_str = unescape_xml(unicode_str) # replace xml escaped unicode with true
+    fontcodes = FONTS[fontname]
+    return  test_against_font_coverage(unicode_str, fontname, fontcodes)
 
-def test_against_font_coverage(unicode_str, font):
-    '''test against the font. The font is a tuple of (<fontname>, [encoding range, encoding_range, ])
+def test_against_font_coverage(unicode_str, fontname, fontcodes):
+    '''test against the font. The fontcodes is a iterable of mixed integers and
+    tuples representing the low,high values for the char range.
     For now just Deja Vu is mapped?
     '''
-    print "FONT:::", font
-    fontname = font[0]
     font_range = []
-    for rng in font[1]:
-        print "RNG-->", rng
+    for rng in fontcodes:
         try:
             start, stop = rng
         except TypeError, ValueError:
@@ -125,7 +125,7 @@ def test_against_font_coverage(unicode_str, font):
     for c in unicode_str:
         if ord(c) not in font_range:
             passes = False
-            #print font, c, ord(c)
+            print "Incompatible char for ", fontname, c, ord(c) 
             break
     return passes
 
@@ -138,12 +138,10 @@ def get_fonts_with_coverage_for_file(filepath):
         s = unicode(s) # force unicode
         xml_to_true_unicode = unescape_xml(s) # replace xml escaped unicode with true
                                         # unicode char
-        fonts = items(FONTS)
-        print fonts
         ok_fonts = []
-        for font in fonts:
-            if test_against_font_coverage(xml_to_true_unicode, font):
-                ok_fonts.append(font)
+        for fontname, fontcodes in FONTS.items():
+            if test_against_font_coverage(xml_to_true_unicode, fontname, fontcodes):
+                ok_fonts.append(fontname)
         return ok_fonts
 
 def main(args):
