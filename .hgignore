@@ -23,3 +23,6 @@ src/*
 *.err
 private/*
 workspace/*
+sample_files/*.pdf
+sample_files/*.html
+sample_files/prime2002
