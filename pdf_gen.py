@@ -116,7 +116,6 @@ class PDFGenerator(object):
             self.postProcessor = postProcessor
         self.debug = debug
 
-    @profile
     def __html_to_pdf(self, htmlstring, pdffile, cssstring=None,
                     encoding='utf-8', debug=False):
         '''Converts an html string to pdf.
@@ -157,7 +156,6 @@ class PDFGenerator(object):
         else:
             raise OSError, "No such file:%s" % filepath
 
-    @profile
     def generate(self, filepath_in, filepath_out, savehtml=False, htmlpath=None, htmlonly=False):
         '''Trys to generate a pdf from the input file.
         Runs the input transform to create html string
@@ -312,7 +310,6 @@ class OAC_EADtoPDFGenerator(object):
                 raise
         return html
 
-    @profile
     def xml_to_pdf(self, filepath_in, outputdir, cssfile=CSSFILE, nohtml=False, savehtml=False, htmlonly=False, debug=False):
         '''Run saxon on xml with oac4_to_pdf.xslt to produce html suitable for 
         the pisa html to pdf library.
