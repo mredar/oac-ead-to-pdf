@@ -9,7 +9,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   exclude-result-prefixes="#all"
   version="2.0">
-  
+
   <xsl:include href="../../../../common/langcodes.xsl"/>
   <xsl:include href="../../../../common/geocodes.xsl"/>
   <xsl:strip-space elements="*"/>
@@ -588,9 +588,14 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
         replace(replace(replace(@href,'http://.*/ark:/', concat('/' , 'ark:/') ) ,'/$',''), '\s$','')" />
 	<xsl:variable name="href">
 		   <xsl:choose>
-			<xsl:when test="@poi">
+			<xsl:when test="@poi != ''">
 				<xsl:text>/</xsl:text>
 				<xsl:value-of select="@poi"/>
+				<xsl:text>/?brand=oac4</xsl:text>
+			</xsl:when>
+                        <xsl:when test="@href and starts-with(@href,'ark:/')">
+				<xsl:text>/</xsl:text>
+				<xsl:value-of select="$hackedLink"/>
 				<xsl:text>/?brand=oac4</xsl:text>
 			</xsl:when>
 			<xsl:when test="@href
@@ -631,10 +636,9 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 	</div>  
 	</a>
 </div>      
-
 </xsl:template> 
 
-<xsl:template match="daogrp[@poi]" mode="ead-dsc ead">
+<xsl:template match="daogrp[@poi!='']" mode="ead-dsc ead">
 <xsl:param name="img_src" select="'/images/icons/sq-eye_icon.gif'"/>
 	<xsl:variable name="href">
 		<xsl:text>/</xsl:text>
@@ -736,4 +740,7 @@ able"
 <xsl:apply-templates select="dsc" mode="eadStart"/>
 </xsl:template>
 
+<xsl:template match="text" mode="ead">
+    <xsl:apply-templates select="xtf:hit" mode="ead"/>
+</xsl:template>
 </xsl:stylesheet>

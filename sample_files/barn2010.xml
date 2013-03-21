@@ -1,0 +1,823 @@
+<?xml version="1.0"?>
+<ead>
+<eadheader repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" scriptencoding="iso15924" audience="internal" langencoding="iso639-2b" findaidstatus="edited-full-draft">
+<eadid xmlns:cdlpath="http://www.cdlib.org/path/" countrycode="US" mainagencycode="CLU-SC" identifier="ark:/13030/tf338nb1vs" cdlpath:parent="ark:/13030/tf129008pn" cdlpath:grandparent="ark:/13030/tf8z09p95s">PUBLIC "-//University of California, Los Angeles::Library::UCLA Library Special Collections//TEXT(US::CLU-SC::2010::Edward Norton Barnhart papers)//EN" "barn2010.xml"</eadid>
+<filedesc>
+<titlestmt>
+<titleproper>Finding Aid for the Edward Norton Barnhart papers, 1890, 1895, 1940-1954</titleproper>
+<titleproper type="filing">Barnhart (Edward N.) papers</titleproper>
+<author>Processed by Susanne Mari Sakai in the Center for Primary Research and Training (CFPRT), with assistance from Kelley Wolfe Bachli and Megan Hahn Fraser, October 2011; machine-readable finding aid created by Caroline Cub&#xE9;.</author>
+</titlestmt>
+<publicationstmt>
+<publisher>UCLA Library Special Collections</publisher>
+<address>
+<addressline>Room A1713, Charles E. Young Research Library</addressline>
+<addressline>Box 951575</addressline>
+<addressline>Los Angeles, CA 90095-1575</addressline>
+<addressline>Email: spec-coll@library.ucla.edu</addressline>
+<addressline>URL: http://www.library.ucla.edu/libraries/special/scweb/</addressline>
+</address>
+<date calendar="gregorian" era="ce">&#xA9; 2012</date>
+<p>The Regents of the University of California. All rights reserved.</p>
+</publicationstmt>
+</filedesc>
+<profiledesc>
+<creation>Machine-readable finding aid derived from database containing container list structure and data, encoding added via MS Access and Notetab Pro; Date of source: <date calendar="gregorian" era="ce"> 2011;</date> frontmatter gathered MARC Record. Supplementary encoding and revision supplied by Caroline Cub&#xE9;.</creation>
+<langusage>Description is in <language langcode="eng" scriptcode="Latn">English</language> and Japanese.</langusage>
+<descrules>Finding aid prepared using <title linktype="simple">Describing Archives: a Content Standard</title></descrules>
+</profiledesc>
+</eadheader>
+<archdesc level="collection" id="archdesc-1.2">
+<did id="did-1.2.1">
+<head>Descriptive Summary</head>
+<unittitle label="Title">Edward Norton Barnhart papers</unittitle>
+<unitdate type="inclusive" normal="1890/1954">1890, 1895, 1940-1954</unitdate>
+<unitid label="Collection number" repositorycode="CLU-SC" countrycode="US">2010</unitid>
+<origination label="Creator">
+<persname rules="aacr2">Barnhart, Edward Norton, 1909- 1988</persname></origination>
+<physdesc label="Extent">
+<extent>6 boxes (3 linear ft.)</extent>
+</physdesc>
+<abstract label="Abstract">Edward Norton Barnhart was a professor of Rhetoric at the University of California, Berkeley and also served as bibliographer for the Japanese American Evacuation and Resettlement Collection there. This collection consists of copies and originals of reports, research papers, and publications related to the Japanese American Evacuation and Resettlement Collection Study and includes War Relocation Authority (WRA) publications and statistical reports on evacuation and resettlement. The collection also includes correspondence of the Tajiris, mostly regarding the preparation of a pamphlet on the Japanese American war efforts, as well as a small collection of personal records of Peruvian Japanese and their families interned at Santa Fe and Crystal City from the law offices of Wayne M. Collins. Materials in this collection are primarily in English with some in Japanese.</abstract>
+<langmaterial label="Language">Finding aid is written in 
+<language langcode="eng">English.</language>
+</langmaterial>
+<repository label="Repository">
+<corpname>University of California, Los Angeles. Library Special Collections.</corpname>
+<address><addressline>Los Angeles, California 90095-1575</addressline></address>
+</repository>
+<physloc label="Physical location">Stored off-site at SRLF. Advance notice is required for access to the collection. Please contact UCLA Library Special Collections for paging information.</physloc>
+</did>
+<descgrp type="admininfo" id="descgrp-1.2.2">
+<head>Administrative Information</head>
+<accessrestrict encodinganalog="506">
+<head>Restrictions on Access</head>
+<p>Open for research. STORED OFF-SITE AT SRLF. Advance notice is required for access to the collection. Please contact UCLA Library Special Collections for paging information. </p>
+</accessrestrict>
+<userestrict encodinganalog="540">
+<head>Restrictions on Use and Reproduction</head>
+<p>Property rights to the physical object belong to the UC Regents. Literary rights, including copyright, are retained by the creators and their heirs. It is the responsibility of the researcher to determine who holds the copyright and pursue the copyright owner or his or her heir for permission to publish where The UC Regents do not hold the copyright.</p>
+</userestrict>
+<processinfo>
+<head>Processing Note</head>
+<p>Processed by Susanne Mari Sakai in the Center for Primary Research and Training (CFPRT), with assistance from Kelley Wolfe Bachli and Megan Hahn Fraser, October 2011.</p>
+</processinfo>
+<prefercite encodinganalog="524">
+<head>Preferred Citation</head>
+<p>[Identification of item], Edward Norton Barnhart papers (Collection Number 2010). UCLA Library Special Collections, Charles E. Young Research Library, UCLA.</p>
+</prefercite>
+</descgrp>
+<bioghist encodinganalog="545" id="bioghist-1.2.3">
+<head>Biography</head>
+<p>Edward Norton Barnhart (1909-1988), Professor Emeritus of Rhetoric at the University of California, Berkeley, served as bibliographer for the university's Japanese American Evacuation and Resettlement Study (JERS) collection. The JERS project received the Woodrow Wilson Award of the American Political Science Association for the most distinguished work in political science published in 1954. As the bibliographer, he was responsible for creating an inventory for the collection.
+</p>
+<p>Barnhart began his scholarly career in the field of psychology, but after joining the government services as a Public Opinion Analyst in the Office of Facts and Figures (later known as the Office of War Information), he started focusing on issues in communication and public policy. In particular, he was interested in examining the legal implications of government bowing down to public opinion pressures during wartime. Such research was embodied in a book he wrote with two others, titled <title>Prejudice, War and the Constituion</title> (1954), which stems from JERS, and deals with the political characteristics and constitutional significance of the wartime internment of Japanese Americans. He also wrote articles on Peruvian Japanese internees in the United States. 
+</p>
+</bioghist>
+<scopecontent encodinganalog="520" id="scopecontent-1.2.4">
+<head>Scope and Content</head>
+<p>The collection consists of various materials related to the Japanese American Evacuation and Resettlement Study (JERS) collection at the University of California, Berkeley, such as statistical reports, newsletters, and research papers. A large portion of the collection comprises of War Relocation Authority (WRA) documents and publications from relocation centers. Also included in the collection are approximately 100 letters addressed to and from Larry Tajiri, editor of the <title>Pacific Citizen</title> newspaper, and his wife. Content of these correspondences mainly regard the the preparation of a new pamphlet to be printed by the Japanese American Citizen's League (JACL) on the Japanese American war efforts. In addition, the collection contains photocopied office files of Wayne M. Collins, a civil rights attorney with the American Civil Liberties Union (ACLU) who served as legal counsel for the Peruvian Japanese interned in the United States during World War II, and thus a handful of personal records of Peruvian Japanese and their families interned at Santa Fe and Crystal City. Materials in this collection are primarily in English with some in Japanese.</p>
+</scopecontent>
+<arrangement id="arrangement-1.2.5">
+<head>Organization and Arrangement</head>
+<p>Arranged in the following series: 
+<list type="ordered" numeration="arabic">
+<item>Preliminary inventory</item>
+<item>WRA statistical reports</item>
+<item>Copies of reports, publication excerpts, research papers, and bibliographies </item>
+<item>WRA reports, newsletters, and summary reports </item>
+<item>Camp newsletters </item>
+<item>Correspondence of the Tajiris (Mr. and Mrs. Larry Tajiri)</item>
+<item>Copies of reports, publications, and a research paper</item>
+<item>Office files (photocopies) of Wayne M. Collins</item>
+</list></p>
+</arrangement>
+<controlaccess id="controlaccess-1.2.6">
+<head>Indexing Terms</head>
+ <p>The following terms have been used to index the description of this collection in the library's online public access catalog.</p>
+<controlaccess>
+<head>Subjects</head>
+ <persname source="lcnaf" encodinganalog="600" role="subject">Barnhart, Edward Norton, 1909- --Archives.</persname>
+ <corpname source="lcnaf" encodinganalog="610">Japanese American Research Project (University of California, Los Angeles).</corpname>
+ <subject source="lcsh" encodinganalog="650">Bibliographers--United States--Archival resources.</subject>
+ <subject source="lcsh" encodinganalog="650">Japanese Americans--Evacuation and relocation, 1942-1945.</subject>
+<controlaccess>
+<head>Other Index Terms Related to this Collection</head>
+ <persname source="aacr2" encodinganalog="700">Collins, Wayne M.</persname>
+ </controlaccess>
+ </controlaccess>
+ </controlaccess>
+<relatedmaterial id="relatedmaterial-1.2.7">
+<head>Related Material</head>
+<p>
+<extref href="http://www.oac.cdlib.org/findaid/ark:/13030/tf6d5nb3z6" actuate="onrequest" show="new">Japanese American Research Project Collection of Material about Japanese in the United States (Collection 2010)
+</extref>. Available at Library Special Collections, UCLA. </p>
+</relatedmaterial>
+<dsc type="in-depth" id="dsc-1.2.8" score="2" C-ORDER="1" MAX-C-ORDER="122">
+<head>Container List</head>
+ <p>The Edward Norton Barnhart papers are found in Boxes 46-51 of the <extref href="http://www.oac.cdlib.org/findaid/ark:/13030/tf6d5nb3z6" actuate="onrequest" show="new">Japanese American Research Project Collection of Material about Japanese in the United States (Collection 2010)</extref>.</p>
+<c01 level="series" id="c01-1.2.8.3" score="2" C-ORDER="3"><did><unittitle>1. Preliminary inventory </unittitle>
+<unitdate> undated</unitdate>
+</did>
+<scopecontent><p>The inventory lists the items found within the Japanese American Evacuation and Resettlement Study
+(JERS) collection, University of California, Berkeley. </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.3.3" score="1" C-ORDER="5"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Inventory list of the Japanese American Evacuation and Resettlement Study (JERS) collection</unittitle>
+<unitdate> undated</unitdate>
+</did>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.4" score="2" C-ORDER="6"><did><unittitle>2. WRA statistical reports </unittitle>
+<unitdate> 1943-1946</unitdate>
+</did>
+<scopecontent><p>Reports relate to the evacuation and resettlement from the War Relocation Authority (WRA) Relocation
+Planning Division, Statistical Section. </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.4.3" score="2" C-ORDER="8"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Reports on weekly leaves and net absences on leave by centers</unittitle>
+<unitdate> 1943 June 19-1946 March 23</unitdate>
+</did>
+<scopecontent><p>Includes: Weekly Leaves by Centers, weekly report, no. 5-33; Net Absences on Leave by Centers, weekly
+report, no. 34-133; and Net Absences on Leave, Tule Lake. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.4" score="2" C-ORDER="10"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Reports on seasonal leaves from centers</unittitle>
+<unitdate> 1943 December 25-1944 May 31</unitdate>
+</did>
+<scopecontent><p>Includes: Seasonal Leaves, Departures by Center, State and County of
+Destination, Weekly Report, no. 31-45; Seasonal Leave by Centers, Weekly Report, County of Destination, no. 1-30; and
+Seasonal Leaves, Departures by Center, State and County of Destination, Monthly Report, no. 46-47 </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.5" score="2" C-ORDER="12"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Reports on indefinite leaves from centers</unittitle>
+<unitdate> 1943 May 1-1945 December 1</unitdate>
+</did>
+<scopecontent><p>Includes: General Indefinite Leaves by Centers, Dependents and Workers,
+semi-monthly report, no. 1-18; Indefinite Leave by Areas, Number of Evacuees on Indefinite Leave Who Have Reported
+Departures, Arrival or Change of Address by Relocation Areas, States and Important Cities, semi-monthly report, no. 1-38;
+Indefinite Leaves by Centers, Weekly Report, State of Destination, no. 1-24a; Indefinite Leaves, State of Destination, weekly
+report, no. 25-30; Indefiniteand Indefinite Leaves by Area, weekly report, no. 16; Indefinite Leaves, Departures by Center, State of
+Destination, Weekly Report, no. 31-45; Indefinite Leaves, Departures by Center, State of Destination, Monthly Report, no. 46-47;
+and Indefinite Leave Departures, State of First Destination by Type of Leave, monthly report, no. 2-4 </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.6" score="1" C-ORDER="14"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Reported Relocation by States, monthly report, no. 1-12</unittitle>
+<unitdate> 1945 February 1-1946 January 1</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.7" score="1" C-ORDER="15"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Returns to West Coast, City, Cumulative, monthly report, no. 1-12; and Returns to West Coast, County and
+Citizenship, Cumulative, monthly report, no. 1-12</unittitle>
+<unitdate> 1945 June 30-1946 March 31</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.8" score="1" C-ORDER="16"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Terminal Departures from Centers, State of First Destination by Center, weekly report, no. 1-48; and Terminal
+Departures from Centers, Cumulative Summary, State of First Destination by Centers, monthly report, no. 1-12</unittitle>
+<unitdate> 1945 January 6-December 1; and 1945 December 31-1946 March 30</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.9" score="1" C-ORDER="17"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Selective Service and Volunteers, Weekly Report, no. 10-52</unittitle>
+<unitdate> 1944 November 4-1945 November 30</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.10" score="2" C-ORDER="18"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">9 </container>
+<unittitle>Reported Casualties Among Soldiers of Japanese Descent, by State, County, and City of Pre-Evacuation Address.
+With Supplements, no. 1-10</unittitle>
+<unitdate> 1944 December 16, and 1944 December 17-1945 November 30</unitdate>
+</did>
+<scopecontent><p>For the States of California, Oregon, Washington and Arizona, and Territories of Alaska and Hawaii
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.4.11" score="1" C-ORDER="20"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">10 </container>
+<unittitle>Cumulative Casualties by Center (Reported Casualties Among Soldiers of Japanese Ancestry by Location of Next of
+Kin and Source of Information), no. 1-15</unittitle>
+<unitdate> 1944 December 16-1945 November 30</unitdate>
+</did>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.5" score="2" C-ORDER="21"><did><unittitle>3. Copies of reports, publication excerpts, research papers, and bibliographies </unittitle>
+<unitdate> 1890-1945</unitdate>
+</did>
+<scopecontent><p>Materials relate to Japanese workers in the U.S., anti-Japanese attitudes, and the impact of the war on
+Japanese American communities. </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.5.3" score="2" C-ORDER="23"><did>
+<container type="box" label="Box">46</container>
+<container type="folder" label="Folder">11 </container>
+<unittitle>United States Bureau of the Census reports, Japanese Employed Workers 14 Years Old and Over by Sex, Nativity,
+Major Occupation, and Industry Group, for Counties and Urban Places</unittitle>
+<unitdate> 1940</unitdate>
+</did>
+<scopecontent><p>In the states of California, Oregon and Washington </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.4" score="1" C-ORDER="25"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Editorials from The Pacific Rural Press</unittitle>
+<unitdate> 1895 September-1942 September</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.5" score="1" C-ORDER="26"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Excerpts from the California Fruit Growers; and Excerpts from the Western Grower and Shipper</unittitle>
+<unitdate> 1890 February- 1942 February; and 1929 December-1942 September</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.6" score="1" C-ORDER="27"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Helen E. Hennefrund, Bibliography on Japanese in American Agriculture</unittitle>
+<unitdate> undated</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.7" score="2" C-ORDER="28"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Reports from the US Department of Agriculture on the Japanese in  American agriculture</unittitle>
+<unitdate> 1942-1945</unitdate>
+</did>
+<scopecontent><p>Lloyd H. Fisher and Ralph L. Nielsen, The Japanese in California Agriculture. Testimony submitted to the
+Select Committee Investigating National Defense Migration. March 1942; Adon Poli, Japanese Farm Holders on the Pacific
+Coast. December 1944; Walter C. McKain, Jr., When the Japanese Return to California. December 1944; Walter C. McKain, Jr.,
+Imperial Valley holds an 'Anti-Japs' meeting. February 1945. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.8" score="1" C-ORDER="30"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Los Angeles County Farm Bureau Monthly, vol. XV, no. 11-12 (2 copies), and vol. XVI, no. 1</unittitle>
+<unitdate> 1942 April-May, and 1942 June</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.9" score="2" C-ORDER="31"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Excerpts of various publications re the Japanese in American agriculture</unittitle>
+<unitdate> undated</unitdate>
+</did>
+<scopecontent><p>Sources include House Committee on Immigration, Berkeley Gazette, Associated Farmer, and Pacific Rural
+ Press. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.10" score="1" C-ORDER="33"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Tamotsu Shibutani, The Initial Impact of the War on the Japanese Communities in the San Francisco Bay Region: A
+Preliminary Report, Berkeley</unittitle>
+<unitdate> 1942</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.11" score="1" C-ORDER="34"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Richard Nishimoto, Chapter V: "Japanese in Domestic Service"</unittitle>
+<unitdate> undated</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.12" score="1" C-ORDER="35"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">9 </container>
+<unittitle>Richard Nishimoto, Chapter VI: "Japanese in Personal Service and Urban Trade"</unittitle>
+<unitdate> undated</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.13" score="1" C-ORDER="36"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">10 </container>
+<unittitle>George Yasukochi, A Study of the Vocational Experiences of University of California Alumni of Japanese Ancestry,
+Berkeley; and Dorothy Sheets, Anti-Japanese Agitation in California Studied at Three Periods of Crisis, Whittier College (M.A.
+thesis)</unittitle>
+<unitdate> 1941; and 1943</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.5.14" score="1" C-ORDER="37"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">11 </container>
+<unittitle>Chitoshi Yanaga, "Comments and Suggestions," "The Nature of Anti-Oriental Attitude," and Bibliography</unittitle>
+<unitdate> undated</unitdate>
+</did>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.6" score="2" C-ORDER="38"><did><unittitle>4.WRA reports, newsletters, and summary reports </unittitle>
+<unitdate> 1942-1945</unitdate>
+</did>
+<scopecontent><p>Materials are those through which the War Relocation Authority (WRA) provided information about the
+Relocation Program. </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.6.3" score="1" C-ORDER="40"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">12 </container>
+<unittitle>WRA, instruction bulletins and memoranda to WRA staff</unittitle>
+<unitdate> 1942-1943</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.4" score="1" C-ORDER="41"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">13 </container>
+<unittitle>WRA, information bulletins to the evacuees, written in Japanese and in English</unittitle>
+<unitdate> undated</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.5" score="1" C-ORDER="42"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">14 </container>
+<unittitle>WRA, Second Quarterly Report and Semi-Annual Report</unittitle>
+<unitdate> 1942 July 1-September 30, 1944 January 1-June 30</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.6" score="1" C-ORDER="43"><did>
+<container type="box" label="Box">47</container>
+<container type="folder" label="Folder">15 </container>
+<unittitle>WRA, Colorado River Relocation Center, Family Welfare Section, The Story of the Family Welfare Section</unittitle>
+<unitdate> 1942 May-1945 May</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.7" score="1" C-ORDER="44"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>WRA, Community Analysis Section, reports</unittitle>
+<unitdate> 1943-1945</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.8" score="1" C-ORDER="45"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>WRA, Community Analysis Section, Weekly Aummary, no.21, 25-27, &amp; 30</unittitle>
+<unitdate> 1945 May 23, June 21 &amp; 27, July 6 &amp; 27</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.9" score="1" C-ORDER="46"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>WRA, Information Digest, no. 44 &amp; 46</unittitle>
+<unitdate> 1943 May 15 &amp; July 15</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.10" score="1" C-ORDER="47"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>WRA, Daily News Digest</unittitle>
+<unitdate> 1944 October 26-1945 April 25</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.11" score="1" C-ORDER="48"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>WRA, Weekly Press Review, no. 19; and Great Lake Area, Newsletter</unittitle>
+<unitdate> 1943 May 26; and 1944 October 31</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.12" score="1" C-ORDER="49"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>WRA, Summary Notes on Segregation Conference of W.R.A. Officials, Denver, Colorado</unittitle>
+<unitdate> 1943 July 26-27</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.13" score="1" C-ORDER="50"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>&#x8F49;&#x4F4F;&#x8A08;&#x753B;&#x306E;&#x5168;&#x8C8C;&#x300C;&#x8F49;&#x4F4F;&#x6240;&#x4F4F;&#x6C11;&#x306E;&#x5FC3;&#x5F97;&#x300D; Tenj&#x16B; keikaku no zenbou: 'tenj&#x16B;sho j&#x16B;min no kokoroe' [Full details about the
+relocation program], Washington D.C.</unittitle>
+<unitdate> 1943 May 5</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.6.14" score="1" C-ORDER="51"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>WRA, All Center Conference, Salt Lake City, Utah</unittitle>
+<unitdate> 1945 February 16-22</unitdate>
+</did>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.7" score="2" C-ORDER="52"><did><unittitle>5. Camp newsletters </unittitle>
+<unitdate> 1942-1945</unitdate>
+</did>
+<scopecontent><p>These publications from various assembly centers and relocation camps report on conditions of their
+institutions. </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.7.3" score="1" C-ORDER="54"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">10 </container>
+<unittitle>Information Concerning Tule Lake Center; and &#x300C;&#x30C4;&#x30FC;&#x30EA;&#x30EC;&#x30C4;&#x30AD;&#x51FA;&#x767A;&#x671F;&#x65E5;&#x78BA;&#x5B9A;&#x3059;&#x3001;&#x30E9;&#x30D5;&#x30A1;&#x30D6;&#x30EA;&#x30C3;&#x30B8;&#x6C0F;&#x3088;&#x308A;&#x4ECA;&#x671D;&#x767A;&#x8868;&#x3055;&#x308B;&#x300D; [Tule Lake
+internees to be notified of day of transfer to Tule Lake]</unittitle>
+<unitdate> n.d.</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.4" score="2" C-ORDER="55"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">11 </container>
+<unittitle>Scattered issues of  the Topaz Times, [vol. I, no.1]-vol.XII, no.9</unittitle>
+<unitdate> 1942 September 17-1945 August 31</unitdate>
+</did>
+<scopecontent><p>Published by the Central Utah Relocation Project, Topaz, Utah. In English and Japanese
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.5" score="2" C-ORDER="57"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">12 </container>
+<unittitle>Trek, vol. 1, no.1-3</unittitle>
+<unitdate> 1942 December, and 1943 February &amp; June</unitdate>
+</did>
+<scopecontent><p>Special publication of the Reports Division, Central Utah Relocation Project, Topaz, Utah
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.6" score="2" C-ORDER="59"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">13 </container>
+<unittitle>Civil Liberties and Test Cases</unittitle>
+<unitdate> 1944 June</unitdate>
+</did>
+<scopecontent><p>Legal Committee Report, Community Council, Topaz, Utah </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.7" score="2" C-ORDER="61"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">14 </container>
+<unittitle>Fighting Americans, Too! 2nd Edition; Volunteers for Victory; Reinstitution of Selective Service: summary of the
+policies of the selective service system, War Department and W.R.A which affect Nisei; and All Aboard</unittitle>
+<unitdate> 1943 April 3; March 6; 1944 June; and Spring</unitdate>
+</did>
+<scopecontent><p>Fighting Americans, Too! published by the historical committee of the Volunteers for Victory, Topaz, Utah;
+Volunteers for Victory published by the Resident Council for Japanese American Civil Rights, Topaz, Utah; Reinstitution of
+Selective Service published by the Citizens Committee and Community Council, Central Utah Project, Topaz, Utah; and All
+Aboard a special publication of the Citizens Committee and Community Council, Central Utah Project, Topaz, Utah
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.8" score="2" C-ORDER="63"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">15 </container>
+<unittitle>scattered issues of the Tanforan Tantalizer, vol. I, no. 1, 7, 10, 12, 14, &amp; 19</unittitle>
+<unitdate> 1942 May 15, June 27, July 15 &amp; 25, August 8, and September 8</unitdate>
+</did>
+<scopecontent><p>Newsletter for the Tanforan Assembly Center at San Bruno, California </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.9" score="2" C-ORDER="65"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">16 </container>
+<unittitle>Denson Magnet, vol. I, no. 1</unittitle>
+<unitdate> 1943 April</unitdate>
+</did>
+<scopecontent><p>Magazine published by the Document Section, Jerome Relocation Center, Denson, Arkansas
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.10" score="2" C-ORDER="67"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">17 </container>
+<unittitle>Issei, Nisei, Kibei: The U.S. has put 110, 000 people of Japanese blood in "protective custody"</unittitle>
+<unitdate> 1944 April</unitdate>
+</did>
+<scopecontent><p>The English version which originally appeared in the April 1944 issue of Fortune Magazine was reprinted as
+the Gila News-Courier Supplement (n.d.), and its Japanese translation in ten installments from April 20 to May 16, 1944 in the
+Gila News-Courier Japanese secton. The Gila News-Courier was the newspaper for the Gila River Relocation Center in Arizona.
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.11" score="2" C-ORDER="69"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">18 </container>
+<unittitle>The Pen</unittitle>
+<unitdate> 1943 November 6</unitdate>
+</did>
+<scopecontent><p>A special anniversary issue published by the Outpost, Rohwer Relocation Center, Relocation, Arkansas
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.12" score="2" C-ORDER="71"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">19 </container>
+<unittitle>Family Welfare Orientation Program</unittitle>
+<unitdate> 1944 April 4-8 &amp; 10-14</unitdate>
+</did>
+<scopecontent><p>Report prepared by the Colorado River Relocation Center, Poston, Arizona </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.13" score="2" C-ORDER="73"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">20 </container>
+<unittitle>America in the War and America in the Peace</unittitle>
+<unitdate> 1944 May 30</unitdate>
+</did>
+<scopecontent><p>A copy of an address delivered by Ralph P. Merritt, Manzanar Relocation Center Director
+</p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.7.14" score="2" C-ORDER="75"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Correspondence and documents re Charlotte B. DeForest, WRA Counselor, and adult education programs in the
+Manzanar Relocation Center, Manzanar, California</unittitle>
+<unitdate> 1944 November-1945 July</unitdate>
+</did>
+<scopecontent><p>A couple of items written in Japanese </p></scopecontent>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.8" score="2" C-ORDER="77"><did><unittitle>6. Correspondence of the Tajiris </unittitle>
+<unitdate> 1944 April-1945 October</unitdate>
+</did>
+<scopecontent><p>Larry Tajiri was the editor of the Pacific Citizen newspaper. These correspendences mostly re the
+preparation of a new pamphlet by the Japanense American Citizens League (JACL) on the Japanese American war efforts.
+</p></scopecontent>
+<c02 level="file" id="c02-1.2.8.8.3" score="1" C-ORDER="79"><did>
+<container type="box" label="Box">48</container>
+<container type="folder" label="Folder">9 </container>
+<unittitle>Correspondence of the Tajiris (Mr. and Mrs. Larry Tajiri)</unittitle>
+<unitdate> 1944 April-1945 October</unitdate>
+</did>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.9" score="2" C-ORDER="80"><did><unittitle>7. Copies of reports, publications, and a research paper </unittitle>
+<unitdate> 1945-1947</unitdate>
+</did>
+<scopecontent><p>Materials concern the postwar resettlement of evacuees and the effect of evacuation on the Japanese
+community in Seattle </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.9.3" score="1" C-ORDER="82"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Reports, bulletins and leaflets on the postwar resettlement of evacuees</unittitle>
+<unitdate> 1945-1947</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.9.4" score="2" C-ORDER="83"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Documents re the Chicago Resettlers Committee</unittitle>
+<unitdate> 1945-1947</unitdate>
+</did>
+<scopecontent><p>Includes scattered issues of the Chicago Resettler, March 29, 1946-June 1947 (6 issues total), and
+mimeographed reports of the Committee, 1946-1947 </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.9.5" score="2" C-ORDER="85"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>S. Frank Miyamoto and Robert W. O'Brien, A Survey of Some Changes in the Seattle Japanese Community Resulting
+from the Evacuation</unittitle>
+<unitdate> undated</unitdate>
+</did>
+<scopecontent><p>Unpublished paper </p></scopecontent>
+</c02>
+</c01>
+<c01 level="series" id="c01-1.2.8.10" score="2" C-ORDER="87"><did><unittitle>8. 	Office files of Wayne M. Collins </unittitle>
+<unitdate> 1946-1955</unitdate>
+</did>
+<scopecontent><p>Wayne M. Collins (1900-1974) was a civil rights attorney with the American Civil Liberties Union (ACLU) who
+ served as legal counsel for the Peruvian Japanese interned in the United States during World War II. </p></scopecontent>
+<c02 level="file" id="c02-1.2.8.10.3" score="1" C-ORDER="89"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 1 of
+ 10)</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.4" score="1" C-ORDER="90"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 2 of
+ 10)</unittitle>
+<unitdate> 1947 January-June</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.5" score="1" C-ORDER="91"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 3 of
+ 10)</unittitle>
+<unitdate> 1947 July-December</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.6" score="1" C-ORDER="92"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 4 of
+ 10)</unittitle>
+<unitdate> 1948</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.7" score="1" C-ORDER="93"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">9 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 5 of
+ 10)</unittitle>
+<unitdate> 1949</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.8" score="1" C-ORDER="94"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">10 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 6 of
+ 10)</unittitle>
+<unitdate> 1950</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.9" score="1" C-ORDER="95"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">11 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 7 of
+ 10)</unittitle>
+<unitdate> 1951</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.10" score="1" C-ORDER="96"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">12 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 8 of
+ 10)</unittitle>
+<unitdate> 1952</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.11" score="1" C-ORDER="97"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">13 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 9 of
+ 10)</unittitle>
+<unitdate> 1953</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.12" score="1" C-ORDER="98"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">14 </container>
+<unittitle>Chronological files containing documents, records, and correspondence on the Peruvian Japanese internees (folder 10
+of 10)</unittitle>
+<unitdate> 1954</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.13" score="2" C-ORDER="99"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">15 </container>
+<unittitle>Records and documents relating to a test suit filed by Iwamori Sakasegawa before the US District Court</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+<scopecontent><p>Iwamori Sakasegawa, along with Chika Yamasaki, was one of two Peruvian Japanese to file test suits on
+June 25, 1946 to prevent deportation to Japan, charging that they were kidnapped by the US Military Police. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.14" score="2" C-ORDER="101"><did>
+<container type="box" label="Box">49</container>
+<container type="folder" label="Folder">16 </container>
+<unittitle>Records and documents relating to a test suit filed by Chika Yamasaki before the US District Court</unittitle>
+<unitdate> 1946-1953</unitdate>
+</did>
+<scopecontent><p>Chika Yamasaki, along with Iwamori Sakasegawa, was one of two Peruvian Japanese to file test suits on
+June 25, 1946 to prevent deportation to Japan, charging that they were kidnapped by the US Military Police. </p></scopecontent>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.15" score="1" C-ORDER="103"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Records and documents relating to the appeals filed to the US Immigration Service on behalf of the Nakamatsu
+family</unittitle>
+<unitdate> 1951-1954</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.16" score="1" C-ORDER="104"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Records and documents relating to the appeals filed to the US Immigration Service on behalf of Isamu
+Kurotobi</unittitle>
+<unitdate> 1943-1955</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.17" score="1" C-ORDER="105"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Documents and records relating to the deportation proceedings initiated by the US Immigration Service against the
+Peruvian Japanese interned at the Terminal Island Immigration Station in Terminal Island, California.</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.18" score="1" C-ORDER="106"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Documents and records relating to the deportation proceedings initiated by the US Immigration Service against the
+Peruvian Japanese interned at the Alien Internment Camp in Crystal City, Texas.</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.19" score="1" C-ORDER="107"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Documents and records relating to the deportation proceedings initiated by the US Immigration Service against the
+Peruvian Japanese interned at Santa Fe Internment Camp in Santa Fe, New Mexico.</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.20" score="1" C-ORDER="108"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Personal records of 65 Peruvian Japanese and their families interned at Santa Fe</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.21" score="1" C-ORDER="109"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Personal records of 91 Peruvian Japanese and their families interned at Crystal City</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.22" score="1" C-ORDER="110"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Aida to Dodohara</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.23" score="1" C-ORDER="111"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">9 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Fujii to Gushi</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.24" score="1" C-ORDER="112"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">10 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Hamamura to Hori</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.25" score="1" C-ORDER="113"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">11 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Ikari to Inamine</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.26" score="1" C-ORDER="114"><did>
+<container type="box" label="Box">50</container>
+<container type="folder" label="Folder">12 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Kage to Kawai</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.27" score="1" C-ORDER="115"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">1 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Kihara to Kurotobi</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.28" score="1" C-ORDER="116"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">2 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Maoki to Murono</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.29" score="1" C-ORDER="117"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">3 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Naganuma to Noguni</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.30" score="1" C-ORDER="118"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">4 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Ohara to Ozaki</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.31" score="1" C-ORDER="119"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">5 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Sadamaru to Suzuki</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.32" score="1" C-ORDER="120"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">6 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Takahashi to Tsutsui</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.33" score="1" C-ORDER="121"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">7 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Uchiyama to Watanabe</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+<c02 level="file" id="c02-1.2.8.10.34" score="1" C-ORDER="122"><did>
+<container type="box" label="Box">51</container>
+<container type="folder" label="Folder">8 </container>
+<unittitle>Individual records on the deportation hearings by the US Immigration Service-- Yakabi to Yoshizumi</unittitle>
+<unitdate> 1946</unitdate>
+</did>
+</c02>
+</c01>
+</dsc>
+</archdesc>
+</ead>

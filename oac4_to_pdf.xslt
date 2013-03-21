@@ -816,10 +816,11 @@ stylesheet override the ead.html.xsl templates-->
 			">
 				<xsl:value-of select="@href"/>
 			</xsl:when>
-			<xsl:when test="starts-with(@href,'http://ark.cdlib.org/ark:/')
-                     			or starts-with(@href,'/ark:/13030/')
-			">
-                <xsl:text>http://content.cdlib.org/</xsl:text>
+			<xsl:when test="starts-with(@href,'/ark:/')">
+                		<xsl:text>http://content.cdlib.org/</xsl:text>
+				<xsl:value-of select="$hackedLink"/>
+			</xsl:when>
+			<xsl:when test="starts-with(@href,'http://ark.cdlib.org/ark:/')">
 				<xsl:value-of select="$hackedLink"/>
 			</xsl:when>
 			<xsl:otherwise/>

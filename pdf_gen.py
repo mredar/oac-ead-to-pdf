@@ -23,6 +23,8 @@ import re
 import xml.etree.ElementTree as ET
 import ho.pisa as pisa
 
+from font_supports_file import test_file_against_font_coverage
+
 def elementlist_tostring(element_list):
     retStr = ''
     for elem in element_list:
@@ -114,6 +116,7 @@ class PDFGenerator(object):
             self.postProcessor = postProcessor
         self.debug = debug
 
+    @profile
     def __html_to_pdf(self, htmlstring, pdffile, cssstring=None,
                     encoding='utf-8', debug=False):
         '''Converts an html string to pdf.
@@ -154,6 +157,7 @@ class PDFGenerator(object):
         else:
             raise OSError, "No such file:%s" % filepath
 
+    @profile
     def generate(self, filepath_in, filepath_out, savehtml=False, htmlpath=None, htmlonly=False):
         '''Trys to generate a pdf from the input file.
         Runs the input transform to create html string
@@ -310,6 +314,7 @@ class OAC_EADtoPDFGenerator(object):
                 raise
         return html
 
+    @profile
     def xml_to_pdf(self, filepath_in, outputdir, cssfile=CSSFILE, nohtml=False, savehtml=False, htmlonly=False, debug=False):
         '''Run saxon on xml with oac4_to_pdf.xslt to produce html suitable for 
         the pisa html to pdf library.
@@ -345,7 +350,7 @@ class OAC_EADtoPDFGenerator(object):
                      force=False, nohtml = False, savehtml = False, debug=False,
                     htmlonly=False):
         self.starttime = datetime.datetime.now()
-        logging.getLogger('OAC').info('Running in file mode for file:%s' % fname)
+        logging.getLogger('OAC').info('Running in file mode for file:%s cssfile:%s' % (fname, cssfile))
         if outdir_option is not None:
         	if (outdir_option.lower().find('parallel') != -1) and not data_root:
                         logging.error("To use parallel output dir in file mode, you must specify the data_root (--data_root=)")
@@ -375,7 +380,9 @@ class OAC_EADtoPDFGenerator(object):
             logging.warn("RUNNING WITH NO TIMEOUT")
             convert_func = self.xml_to_pdf
     
+        cssfile_orig = cssfile
         for fname in flist:
+            cssfile = cssfile_orig
             if OAC_EADtoPDFGenerator.isNot_DC_or_METS_XML(fname):
                 #If pdf exists and is newer than xml, do nothing?
                 # may want to make an opt for this behavior
@@ -399,6 +406,13 @@ class OAC_EADtoPDFGenerator(object):
                     self.numfileattempt +=1
                     msg = ''
                     status = 'WORKING'
+                    #Check for deja vu font compatibility
+
+                    dejavu_compat = test_file_against_font_coverage(fname, 'dejavu')
+                    if not dejavu_compat:
+                        cssfile = u''.join((os.path.splitext(cssfile)[0],
+                            "-unifont", os.path.splitext(cssfile)[1]))
+                        logger.info("Using unifont for {0} -- css:{1}.".format(fname, cssfile))
                     try:
                         html, result_post = convert_func(fname,
                                      outputdir,
@@ -541,9 +555,9 @@ class PostProcessor_OACEAD(object):
                 logger.debug(root_element)
                 # try Dublin Core Elements
                 contributor = elementlist_tostring(root_element.findall('./contributor'))
-                creator = elementlist_tostring(root_element.findall('//creator'))
+                creator = elementlist_tostring(root_element.findall('.//creator'))
                 c =root_element.find('./archdesc/did/origination')
-                if c:
+                if c is not None:
                     creator = elementlist_tostring(root_element.find('./archdesc/did/origination').getchildren())
                 date = elementlist_tostring(root_element.findall('./date'))
                 description = elementlist_tostring(root_element.findall('./description'))
@@ -554,13 +568,13 @@ class PostProcessor_OACEAD(object):
                 source = elementlist_tostring(root_element.findall('./source'))
                 subject = elementlist_tostring(root_element.findall('./archdesc/subject'))
                 if subject=='':
-                    subject = elementlist_tostring(root_element.findall('//subject'))
-                title = elementlist_tostring(root_element.findall('//title'))
+                    subject = elementlist_tostring(root_element.findall('.//subject'))
+                title = elementlist_tostring(root_element.findall('.//title'))
                 type = elementlist_tostring(root_element.findall('./type'))
     
                 title = elementlist_tostring(root_element.findall('./titleproper'))
                 if title == '':
-                    title = root_element.find('//unittitle').text 
+                    title = root_element.find('.//unittitle').text 
     
                 author = creator
                 
