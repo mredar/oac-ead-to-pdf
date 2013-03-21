@@ -54,7 +54,7 @@
 <xsl:param name="view"/>
 <xsl:param name="style"/>
 <xsl:param name="pdfgen" select="'1'"/>
-<xsl:param name="image_dir" select="'./images'"/>
+<xsl:param name="image_dir" select="'{ROOT_DIR}/images'"/>
 
 <xsl:variable name="page" select="/"/>
 

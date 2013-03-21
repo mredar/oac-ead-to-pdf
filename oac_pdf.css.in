@@ -1,30 +1,30 @@
 @font-face {
     font-family: DejaSans;
-    src: url("./fonts/DejaVuSans.ttf");
+    src: url("{ROOT_DIR}/fonts/DejaVuSans.ttf");
 }
 
 @font-face {
     font-family: DejaSans;
-    src: url("./fonts/DejaVuSans-Bold.ttf");
+    src: url("{ROOT_DIR}/fonts/DejaVuSans-Bold.ttf");
     font-weight: bold;
 }
 
 @font-face {
     font-family: DejaSans;
-    src: url("./fonts/DejaVuSans-Oblique.ttf");
+    src: url("{ROOT_DIR}/fonts/DejaVuSans-Oblique.ttf");
     font-style: italic;
 }
 
 @font-face {
     font-family: DejaSans;
-    src: url("./fonts/DejaVuSans-BoldOblique.ttf");
+    src: url("{ROOT_DIR}/fonts/DejaVuSans-BoldOblique.ttf");
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: Unifont;
-    src: url("./fonts/unifont.ttf");
+    src: url("{ROOT_DIR}/fonts/unifont.ttf");
 }
 
 * {
