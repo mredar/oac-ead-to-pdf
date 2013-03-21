@@ -6,7 +6,7 @@ import os
 import glob
 import re
 
-regex = re.compile('\./')
+regex = re.compile('{ROOT_DIR}')
 
 DIR_THIS_FILE = os.path.abspath(os.path.dirname(__file__))
 DIR_THIS_FILE_SLASHED = DIR_THIS_FILE+'/'
@@ -20,3 +20,13 @@ for f in cssfiles:
         for l in open(f).readlines():
             newline = regex.sub(DIR_THIS_FILE_SLASHED, l)
             outfoo.write(newline)
+
+xsltfiles = glob.glob(DIR_THIS_FILE+"/*.xslt.in")
+print xsltfiles
+for f in xsltfiles:
+    outfname = os.path.splitext(f)[0]
+    with open(outfname, 'w') as outfoo:
+        for l in open(f).readlines():
+            newline = regex.sub(DIR_THIS_FILE_SLASHED, l)
+            outfoo.write(newline)
+

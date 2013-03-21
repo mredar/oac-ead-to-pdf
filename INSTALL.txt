@@ -54,13 +54,6 @@ http://www.crummy.com/software/BeautifulSoup/download/BeautifulSoup.tar.gz
 
 pip install -U beautifulsoup
 
-Parallel Python 1.6
--------------------
-http://www.parallelpython.com
-http://pypi.python.org/pypi/Parallel%20Python%20SMP/1.1%20beta
-
-pip install -U http://www.parallelpython.com/downloads/pp/pp-1.6.0.tar.gz
-
 PLAC 0.7
 --------
 
@@ -72,13 +65,26 @@ If you want to embed images you need the PIL, Python Imaging Library. This has
 components that must be compiled on your platform and can be a bit of a pain.
 http://www.pythonware.com/products/pil/
 
-This code has been tested on solaris 10 and Mac OS X 10.5.
+Jpeg support is provided by libjpeg, make sure you have it and zlib as well.
+
+If using the parallel scripts in /scripts/:
+Parallel Python 1.6
+-------------------
+http://www.parallelpython.com
+http://pypi.python.org/pypi/Parallel%20Python%20SMP/1.1%20beta
+
+pip install -U http://www.parallelpython.com/downloads/pp/pp-1.6.0.tar.gz
+
+
+This code has been tested on ubuntu 12
 
 
 INSTALL
 -------
 
 Install all the dependencies, edit your CLASSPATH and PYTHONPATH if necessary.
+
+Run python fix_relative_css_paths.py to make relative paths absolute.
 
 A quick test can be done by moving the pdf_gen directory and running
 
