@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ead>
+     <eadheader langencoding="iso639-2b" scriptencoding="iso15924" repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601">
+         <eadid xmlns:cdlpath="http://www.cdlib.org/path/" countrycode="us" identifier="ark:/13030/c8dj5dmp" mainagencycode="CSmH" publicid="photCL 97" cdlpath:parent="ark:/13030/tf6t1nb9mj" >photCL 97</eadid>
+         <filedesc id="filedesc">
+             <titlestmt>
+                 <titleproper>Photograph Album of the Cruise of the Revenue Cutter &quot;Corwin&quot; in Alaska, 1883</titleproper>
+                 <titleproper type="filing">Photograph Album of the Cruise of the Revenue Cutter &quot;Corwin&quot; in Alaska, 1883</titleproper>
+                 <author></author>
+             </titlestmt>
+             <publicationstmt>
+                 <publisher></publisher>
+                 <date>1881 and 1883</date>
+             </publicationstmt>
+         </filedesc>
+     </eadheader>
+     <archdesc level="collection" id="archdesc">
+         <did id="did">
+             <head>Descriptive Summary</head>
+             <unittitle label="Title">Photograph Album of the Cruise of the Revenue Cutter &quot;Corwin&quot; in Alaska, 1883</unittitle>
+             <unitdate normal="1881/1883" label="Dates">1881 and 1883</unitdate>
+             <unitid label="Collection Number" repositorycode="CSmH" countrycode="US">photCL 97</unitid>
+             <origination label="Creator/Collector">
+                 
+                 
+                 
+             </origination>
+             <physdesc label="Extent"><extent>36 photos in 1 album; album 18 x 27 cm. (7 x 11 in.); 1 microfilm roll of copy negatives of the photos.  See itemized list under &quot;Additional collection guides.&quot;</extent>
+             </physdesc>
+             
+             <repository label="Repository">
+                 <corpname>
+                    Huntington Library. Photo Archives
+                 </corpname>
+             </repository>
+             <abstract label="Abstract">This personal album illustrates the sights and peoples experienced by the voyagers of the &quot;Corwin.&quot; There are many views of Inuit villages and inhabitants in Alaska and coastal Siberia, along with scenery and seascapes. All photographs are accompanied by detailed, manuscript captions in ink by an unknown individual. Photographs depict Alaskan nature scenes and harbors; Inuit people, dwellings and villages; and documentation of the fur trade in the nineteenth century. This collection primarily provides insight into the USRC “Thomas Corwin&quot;’s Arctic voyage in 1881. It is unclear if the photographs taken in 1883 are of a later voyage.
+The collection is particularly strong in images of fur trade expeditions and merchants, and Inuit people and dwellings.</abstract>
+             <langmaterial><language langcode="eng"/></langmaterial>
+        </did>
+        <accessrestrict id="accessrestrict"><head>Access</head><p>Access is granted to qualified researchers and by appointment. Please contact the Curator of Photographs at the Huntington Library. 
+</p></accessrestrict>
+        <userestrict id="userestrict"><head>Publication Rights</head><p>All requests for permission to publish photographs must be submitted in writing to the Curator of Photographs. Permission for publication is given on behalf of the Huntington as the owner of the physical items and is not intended to include or imply permission of the copyright holder, which must also be obtained.</p></userestrict>
+        <prefercite id="prefercite"><head>Preferred Citation</head><p>Photograph Album of the Cruise of the Revenue Cutter &quot;Corwin&quot; in Alaska, 1883.  Huntington Library. Photo Archives</p></prefercite>
+        <acqinfo id="acqinfo"><head>Acquisition Information</head><p>This collection was purchased from Shorey’s Bookstore (Seattle, Washington) in 1956.</p></acqinfo>
+        
+        <bioghist id="bioghist"><head>Biography/Administrative History</head><p>Individual related to this collection: Michael A. Healy, 1839-1904,(not depicted in this collection) served with the &quot;Thomas Corwin&quot; beginning in 1882; he rose to the position of captain in March of 1883. While in command of the &quot;Corwin,&quot; Healy patrolled the Arctic to prevent illegal sale of guns and alcohol to the Alaskan natives and to control illegal fur seal hunting. The captain was also concerned for the well-being of the Alaskan natives, and ferried Siberian caribou over to help reestablish the natives’ food supply since many seals and walruses were killed by white traders. </p></bioghist>
+        
+        <scopecontent id="scopecontent"><head>Scope and Content of Collection</head><p>The photographs of the Inuit inhabitants include portraits; views of homes and villages; and the killing and skinning of seals. There are also views of non-Indian hunters and traders.  The Inuit villages and dwellings illustrated are in Sitka, St. Michael, King&#39;s Island, and locations in Siberia. There is one view of an &quot;Eskimo&quot; [i.e. Inuit] grave at an unidentified location. The photograph album has the words &quot;Scenes in Alaska and the Arctic Ocean. 1883&quot; embossed on the cover.  An ink manuscript title page reads: &quot;Cruise of the Revenue Cutter &#39;Corwin&#39; 1881.&quot;
+See also photCL 131 for related photographs concerning the &quot;Corwin.&quot;</p></scopecontent>
+        <controlaccess id="controlaccess">
+            <head>Indexing Terms</head>
+            
+                <subject>Body piercing</subject>
+            
+                <subject>Corwin (Ship)</subject>
+            
+                <subject>Fur trade--Alaska</subject>
+            
+                <subject>Graves—Alaska </subject>
+            
+                <subject>Indians of North America--Alaska</subject>
+            
+                <subject>Inuit</subject>
+            
+                <subject>Orthodox churches</subject>
+            
+                <subject>Russian Orthodox</subject>
+            
+                <subject>Sailing ships</subject>
+            
+                <subject>Whaling</subject>
+            
+            
+                <persname role="subject">Healy, Michael A., 1839-1904</persname>
+            
+            
+            
+            
+                <geogname role="subject">Alaska</geogname>
+            
+                <geogname role="subject">Arctic Ocean</geogname>
+            
+                <geogname role="subject">Bering Sea</geogname>
+            
+                <geogname role="subject">Siberia (Russia)</geogname>
+            
+            
+                <genreform role="subject">Photograph Albums</genreform>
+            
+                <genreform role="subject">Photographs</genreform>
+            
+                <genreform role="subject">Marine photographs</genreform>
+            
+            
+            
+            
+        </controlaccess>
+        
+        <otherfindaid id="otherfindaid">
+            <head>Additional collection guides</head>
+            <list>
+            
+            <item><extref href="/data/13030/mp/c8dj5dmp/files/photCL 97 List of Photographs.pdf">List of Photographs</extref></item>
+            
+            </list>
+        </otherfindaid>
+        
+    </archdesc>
+</ead>

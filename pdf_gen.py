@@ -308,6 +308,12 @@ class OAC_EADtoPDFGenerator(object):
             except:
                 print >> sys.stderr, "Exception from os.remove"
                 raise
+        #RecordExpress ead have just a path to the supplemental files in the 
+        #extref. Need to convert to a true URL.
+        #should probably parse the html but I know that the href will always 
+        #look like href="/data/13030/ ....." for RecExp
+        server = os.environ.get('FINDAID_HOSTNAME', 'www.oac.cdlib.org')
+        html = html.replace('href="/data/13030/', 'href="http://'+server+'/data/13030/')
         return html
 
     def xml_to_pdf(self, filepath_in, outputdir, cssfile=CSSFILE, nohtml=False, savehtml=False, htmlonly=False, debug=False):
