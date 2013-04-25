@@ -599,7 +599,10 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 				<xsl:text>/?brand=oac4</xsl:text>
 			</xsl:when>
 			<xsl:when test="@href
-                        		and not ( contains(@href,'/ark:/') )
+                        		and ( not ( contains(@href,'/ark:/') ) 
+                                            or
+                                              contains(@href,'oac.cdlib.org/items/ark:/')
+                                            )
 			">
 				<xsl:value-of select="@href"/>
 			</xsl:when>
@@ -631,7 +634,7 @@ phystech | prefercite | processinfo | relatedmaterial | scopecontent | separated
 	</div>
 	<div class="right">
 		<span class="online-items">
-		<a href="{$href}">view online item</a> 
+		<a href="{$href}">view online item</a>
 		</span>
 	</div>  
 	</a>
@@ -741,6 +744,13 @@ able"
 </xsl:template>
 
 <xsl:template match="text" mode="ead">
-    <xsl:apply-templates select="xtf:hit" mode="ead"/>
+    <xsl:if test="number(@xtf:hitCount) &gt; 0">
+    <span class="subhit">
+        <a>
+            <xsl:attribute name="href" select="../extref/@href"/>
+            [ <xsl:value-of select="@xtf:hitCount"/> hits]
+        </a>
+    </span>
+    </xsl:if>
 </xsl:template>
 </xsl:stylesheet>
