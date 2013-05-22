@@ -316,6 +316,8 @@ class OAC_EADtoPDFGenerator(object):
         #look like href="/data/13030/ ....." for RecExp
         server = os.environ.get('FINDAID_HOSTNAME', 'www.oac.cdlib.org')
         html = html.replace('href="/data/13030/', 'href="http://'+server+'/data/13030/')
+        html = html.replace('href="ark:/', 'href="http://'+server+'/ark:/')
+        html = html.replace('href="/', 'href="http://'+server+'/')
         return html
 
     def xml_to_pdf(self, filepath_in, outputdir, cssfile=CSSFILE, nohtml=False, savehtml=False, htmlonly=False, debug=False):
