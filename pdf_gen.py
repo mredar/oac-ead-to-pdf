@@ -279,18 +279,13 @@ class OAC_EADtoPDFGenerator(object):
                                 self.xsltpath,
                                " doc.view=entire_text pdfgen=",
                                "debug" if debug else "normal"
-                                #" #2> /dev/null"
                               ])
         
             logging.getLogger('OAC').info("Saxon call: %s" % (syscall))
             import subprocess
-            print "+++++++SYSCALL:", syscall
             p = subprocess.Popen(syscall, shell=True, stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE)
-            #p = subprocess.Popen(syscall, shell=True, stdout=None,
-            #                     stderr=None)
             sts = os.waitpid(p.pid, 0)
-            print "STATUS", sts
             err = sts[1]
             logging.getLogger('OAC').info("Saxon call exit:%s" % (err))
             if err != 0:
@@ -324,10 +319,8 @@ class OAC_EADtoPDFGenerator(object):
         '''Run saxon on xml with oac4_to_pdf.xslt to produce html suitable for 
         the pisa html to pdf library.
         '''
-        #print "xml_to_pdf input:", filepath_in, outputdir, cssfile, nohtml, savehtml, debug
         dir, filename = os.path.split(filepath_in)
         fname, ext = os.path.splitext(filename)
-        #filepath_in = os.path.join(dirname, name, '.xml')
         filepath_out = os.path.join(outputdir, fname)
         err = 0
         # create an instance of the PDFGenerator
