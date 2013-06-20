@@ -12,7 +12,19 @@ It also adds the capacity to take advantage of multi-processors with new code in
 The main code is in pdf_gen.py and should run directly from pdf_gen.py.
 The files in the scripts/ directory are more specific to our OAC setup, but they do provide examples of various options.
 
+INSTALL:
+========
+
+Run -->
+
+python fix_relative_css_paths.py
+
+to generate css and xslt files with the correct absolute path to your install
+directory.
+
+
 Known Issues:
+=============
 
 On large EAD (over a few megabytes), this program can take a *very* long time to
 run. A timeout function wrapper was introduced to address this when working on
