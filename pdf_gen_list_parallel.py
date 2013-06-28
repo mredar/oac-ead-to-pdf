@@ -30,14 +30,15 @@ def run_file_list_with_pp(filelist, ncpu=None, timeout=None, cssfile=CSSFILE, fo
     logging.info("======= Enter run_list_with_pp =======")
     if len(filelist)==0:
         return [], [], [], []
-    #job_server = pp.Server(loglevel=logging.INFO)
-    job_server = pp.Server()
+    job_server = None
     #use 1/2 of the processors
     if not ncpu:
+        job_server = pp.Server()
         ncpu = job_server.get_ncpus()
         ncpu = divmod(ncpu,2)[0]
     else:
         ncpu=int(ncpu)
+        job_server = pp.Server(ncpus=ncpu)
     job_server.set_ncpus(ncpus=ncpu)
     msg = "RESET PP with "+str(ncpu)+" workers timeout="+str(timeout)
     logging.info(msg) 
