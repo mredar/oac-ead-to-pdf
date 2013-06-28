@@ -309,7 +309,7 @@ class OAC_EADtoPDFGenerator(object):
         #extref. Need to convert to a true URL.
         #should probably parse the html but I know that the href will always 
         #look like href="/data/13030/ ....." for RecExp
-        server = os.environ.get('FINDAID_HOSTNAME', 'www.oac.cdlib.org')
+        server = 'www.oac.cdlib.org'
         html = html.replace('href="/data/13030/', 'href="http://'+server+'/data/13030/')
         html = html.replace('href="ark:/', 'href="http://'+server+'/ark:/')
         html = html.replace('href="/', 'href="http://'+server+'/')
