@@ -22,6 +22,7 @@ from optparse import OptionParser, OptionError
 import re
 import xml.etree.ElementTree as ET
 import ho.pisa as pisa
+import signal
 
 from font_supports_file import test_file_against_font_coverage
 
@@ -283,12 +284,15 @@ class OAC_EADtoPDFGenerator(object):
         
             logging.getLogger('OAC').info("Saxon call: %s" % (syscall))
             import subprocess
+            ppid = os.getppid()
+            #logging.getLogger('OAC').info("Parent PID: %d" % (ppid,))
             try:
                 p = subprocess.Popen(syscall, shell=True, stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE)
             except OSError:
                 etype, value, traceback = sys.exc_info()
                 logging.getLogger('OAC').error("OSError RAISED: %s --> exiting!!!!!!" % (value, ))
+                os.kill(ppid, signal.SIGKILL)
                 os._exit(99)
             sts = os.waitpid(p.pid, 0)
             err = sts[1]
