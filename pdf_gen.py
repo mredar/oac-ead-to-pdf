@@ -283,8 +283,13 @@ class OAC_EADtoPDFGenerator(object):
         
             logging.getLogger('OAC').info("Saxon call: %s" % (syscall))
             import subprocess
-            p = subprocess.Popen(syscall, shell=True, stdout=subprocess.PIPE,
+            try:
+                p = subprocess.Popen(syscall, shell=True, stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE)
+            except OSError:
+                etype, value, traceback = sys.exc_info()
+                logging.getLogger('OAC').error("OSError RAISED: %s --> exiting!!!!!!" % (value, ))
+                os._exit(99)
             sts = os.waitpid(p.pid, 0)
             err = sts[1]
             logging.getLogger('OAC').info("Saxon call exit:%s" % (err))
